@@ -47,11 +47,10 @@ export default {
         border: none;
         position: absolute;
         right: var(--spaceM);
-        top: calc(50% - 9px);
+        top: calc(50% - (var(--iconSize)/2));
         padding:0;
-        height:18px;
-        width:18px;
-          
+        height:var(--iconSize);
+        width:var(--iconSize);
     }
 
     & button:active,
@@ -61,5 +60,6 @@ export default {
     }
 
 }
+
 
 </style>

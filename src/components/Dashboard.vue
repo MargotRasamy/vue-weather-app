@@ -29,7 +29,9 @@ export default {
     }
     &>:nth-child(2){
     grid-column: 3 / 10;
+      
     }
+  
 }
 
 
