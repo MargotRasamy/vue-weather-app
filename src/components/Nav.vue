@@ -4,7 +4,7 @@
         <span></span>
         <ul class="nav">
             <li class="nav-item nav-active">
-            <router-link class="nav-link " to="/">Météo du jour</router-link>   
+            <router-link class="nav-link" to="/">Météo du jour</router-link>   
             </li>
             <li class="nav-item">
             <router-link class="nav-link" to="/nextdays">Les prochains jours</router-link>
@@ -25,10 +25,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../../assets/scss-variables/medias.scss";
+@import "../assets/scss-variables/medias.scss";
 nav {
     background-color: var(--colorPurpleLight);
-    color: var(--colorWhite);
+   
     height:100%;
     width:100%;
     border-radius: 0 var(--borderRadiusLarge) 0 0;
@@ -62,13 +62,14 @@ span {
     align-items: center;
     padding:var(--spaceXS) var(--spaceM);
     min-height:40px;
-    
+    color: var(--colorWhite);
 }
 .nav-active{
-    color: var(--colorPurple);
     background-color: var(--colorPurpleVeryLight);
-
     border-radius: var(--borderRadiusMedium) 0 0 var(--borderRadiusMedium) ;
+    &>.nav-link{
+        color: var(--colorPurple);
+    }
     @include small{
         background-color: var(--colorPurpleVeryLight);
         border-radius: 0;

@@ -1,14 +1,20 @@
 <template>
    <form class="input">
-                <input type="text" id="search-input" name="searching" placeholder="Rechercher une ville"/>
+                <input v-model="queryCity" type="text" id="search-input" name="searching" placeholder="Rechercher une ville"/>
                 <button type="submit" alt="submit"/>
+                {{queryCity}}
     </form>
     
 </template>
 
 <script>
 export default {
-  name: 'Input'
+  name: 'Input',
+  data(){
+      return {
+          queryCity: ""
+      }
+  }
 }
 </script>
 
@@ -40,7 +46,7 @@ export default {
     & button {
         cursor: pointer;
         background-color: transparent;
-        background-image: url('../../assets/search.svg');
+        background-image: url('../assets/search.svg');
         background-size: cover;
         background-position: center;
         border: none;

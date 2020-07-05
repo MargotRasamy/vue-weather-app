@@ -1,7 +1,7 @@
 <template>
   <div class="logo">
     
-    <img alt="logo" src="../../assets/logo.svg"/>
+    <img alt="logo" src="../assets/logo.svg"/>
     <h3>Meteor <span>Garden</span></h3>
     
   </div>

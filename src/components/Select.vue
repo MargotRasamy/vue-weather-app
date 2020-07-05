@@ -25,7 +25,7 @@ select {
    -webkit-appearance: none;
    -moz-appearance: none;
    appearance: none;       /* Remove default arrow */
-   background-image: url('../../assets/select.svg');   /* Add custom arrow */
+   background-image: url('../assets/select.svg');   /* Add custom arrow */
    background-repeat: no-repeat;
    background-position:  95% center;
    width:100%;
