@@ -91,9 +91,8 @@ export default {
   @include small{
     grid-template-columns: var(--gridColumns);
   }
-  & .data-title{
-
-    
+  
+  & .data-title{  
     margin: 0;
   }
   & .dashboard-container-grid{
