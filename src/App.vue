@@ -28,8 +28,8 @@ export default {
   },
   methods: {
     openMenu : function () {
-      console.log(this.$refs.navMenu.classList)
-      const navMenu = this.$refs.navMenu.classList;
+      console.log(this.$refs)
+      const navMenu = this.$refs.navMenu.$el.classList;
       navMenu.contains('closed-menu') ? navMenu.toggle('closed-menu') : navMenu.add('closed-menu')
     }
   }
@@ -48,6 +48,9 @@ body{
 }
 h1,h2,h3,h4,h5,h6 {
     font-weight: bold;
+}
+p{
+  margin:0;
 }
 a{
   text-decoration: none;
@@ -119,7 +122,8 @@ a{
       }
     }
     &>:last-child{ 
-        grid-gap: var(--gutterWidth); grid-column: 3 / 13;
+        grid-gap: var(--gutterWidth); 
+        grid-column: 3 / 13;
         margin-bottom: var(--gutterWidth);;
       @include small {
         grid-column: 1 / 5;
