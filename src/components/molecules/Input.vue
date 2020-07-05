@@ -1,6 +1,6 @@
 <template>
    <form class="input">
-                <input type="text" id="search-input" name="searching" placeholder="Rechercher votre ville... Ex: Paris"/>
+                <input type="text" id="search-input" name="searching" placeholder="Rechercher une ville"/>
                 <button type="submit" alt="submit"/>
     </form>
     
@@ -19,14 +19,13 @@ export default {
   margin:auto 0;
     //input
     & input {
-        font-weight: var(--fontWeightMedium);
         border-radius: var(--borderRadiusSmall);
         box-sizing: border-box;
         border: none;
         box-shadow: var(--boxShadowPurple);
         height: 40px;
         width: 100%;
-        padding-left: var(--spaceM);
+        padding-left: var(--spaceS);
         font-size: var(--fontSizeMain);
        
     }
@@ -35,7 +34,7 @@ export default {
         border: 2px solid var(--colorPurpleLight);
         outline: var(--colorPurple);
     }
-
+  
 
     //button
     & button {
@@ -46,7 +45,7 @@ export default {
         background-position: center;
         border: none;
         position: absolute;
-        right: var(--spaceM);
+        right: var(--spaceS);
         top: calc(50% - (var(--iconSize)/2));
         padding:0;
         height:var(--iconSize);
