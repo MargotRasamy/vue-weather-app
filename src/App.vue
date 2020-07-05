@@ -1,15 +1,13 @@
 <template>
   <div id="app">
     <Logo/>
-    <a class="burger-menu" href="#">&#9776;</a>
+    <a v-on:click="openMenu" class="burger-menu" href="#">&#9776;</a>
     <Input/>
     <Select/>
-    <Nav/>
+    <Nav ref="navMenu" class="closed-menu"/>
 
     <!-- router : main content -->
-    <div class="main-content">
       <router-view></router-view>
-    </div>
   </div>
 </template>
 
@@ -27,6 +25,13 @@ export default {
     Input,
     Select,
     Nav
+  },
+  methods: {
+    openMenu : function () {
+      console.log(this.$refs.navMenu.classList)
+      const navMenu = this.$refs.navMenu.classList;
+      navMenu.contains('closed-menu') ? navMenu.toggle('closed-menu') : navMenu.add('closed-menu')
+    }
   }
 }
 </script>
@@ -48,7 +53,11 @@ a{
   text-decoration: none;
 }
 
-
+.closed-menu{
+  @include small{
+    display :none;
+  }
+}
 #app {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -88,9 +97,12 @@ a{
     grid-column: 1 / 3;
     grid-row : 2/ 3;
       @include small{
-        grid-column: 3 / 5;
-        grid-row : 2/ 3;
-        display: none;
+        
+        position: absolute;
+        z-index:1;
+        top: 65px;
+        right:var(--marginsLayout);
+        width:50%;
        
       }
     }
@@ -106,11 +118,12 @@ a{
         justify-self: flex-end;
       }
     }
-    & .main-content{
-      display: grid;
-      grid-template-columns: repeat(10, 1fr);
-      grid-gap: var(--gutterWidth);
-      grid-column: 3 / 13;
+    &>:last-child{ 
+        grid-gap: var(--gutterWidth); grid-column: 3 / 13;
+        margin-bottom: var(--gutterWidth);;
+      @include small {
+        grid-column: 1 / 5;
+      }
     }
 }
 

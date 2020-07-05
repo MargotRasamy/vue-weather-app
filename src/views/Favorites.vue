@@ -1,6 +1,6 @@
 <template>
   <div class="favorites">
-    
+    fav
   </div>
 </template>
 

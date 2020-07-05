@@ -1,6 +1,6 @@
 <template>
 
-    <nav>
+    <nav ref="navMenu" >
         <span></span>
         <ul class="nav">
             <li class="nav-item nav-active">
