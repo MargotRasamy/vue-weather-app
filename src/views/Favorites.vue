@@ -1,20 +1,17 @@
 <template>
-  <div class="dashboard">
-   
+  <div class="favorites">
+    
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'Dashboard'
+  name: 'Favorites'
 }
 </script>
 
 <style scoped lang="scss">
-
-
-
 
 
 </style>

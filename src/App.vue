@@ -5,6 +5,11 @@
     <Input/>
     <Select/>
     <Nav/>
+
+    <!-- router : main content -->
+    <div class="main-content">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -54,7 +59,7 @@ a{
   min-height: 100vh;
   height:100%;
 
-  // Page Layout with CSS grid for a perfectly customized layout
+  // Page Layout with CSS grid for a pixel-perfect customized responsive layout
     display: grid;
     grid-template-columns: var(--gridColumns);
     grid-template-rows: var(--gridRows);
@@ -100,6 +105,12 @@ a{
         align-self: center;
         justify-self: flex-end;
       }
+    }
+    & .main-content{
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      grid-gap: var(--gutterWidth);
+      grid-column: 3 / 13;
     }
 }
 
