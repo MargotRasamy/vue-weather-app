@@ -4,7 +4,6 @@
     <select>
         <option selected>Français</option>
         <option >English</option>
-        <option >Malagasy</option>
     </select>
     
   </div>

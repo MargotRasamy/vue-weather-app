@@ -1,19 +1,36 @@
 <template>
    <form class="input">
-                <input v-model="queryCity" type="text" id="search-input" name="searching" placeholder="Rechercher..."/>
+                <input v-model="queryCity" v-on:click="getWeather" type="text" id="search-input" name="searching" placeholder="Rechercher..."/>
                 <button type="submit" alt="submit"/>
-                {{queryCity}}
+                
     </form>
-    
+  
 </template>
 
 <script>
+// Import axios for calls
+const axios = require('axios');
+
+// Import store
+import store from '../store/store.js'
+
 export default {
   name: 'Input',
   data(){
       return {
-          queryCity: ""
+          apiKey : "5931f623ca1fae44f02bc1bf35cb9c7a",
+          queryCity: "",
+          weather : {}
       }
+  },
+  methods : {
+    getWeather() {
+        console.log(store.apiKey)
+        axios.get(`http://api.openweathermap.org/data/2.5/weather?q=Londres&units=metric&appid=${store.apiKey}`)
+        .then(response => console.log(response.data) );
+        axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=Paris&appid=${store.apiKey}&lang=fr`)
+        .then(response => console.log(response.data) )
+    }
   }
 }
 </script>

@@ -2,7 +2,7 @@
   <div class="pressure">
 
           <p class="data-title">Pression atmosphérique</p>
-          <p class="data-numbers">78%</p>
+          <p class="data-numbers">1000 hpa</p>
    
     <img src="../../assets/weather-icons/tide.svg"/>
     

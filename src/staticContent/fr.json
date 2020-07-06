@@ -1,0 +1,27 @@
+{   
+    "input" : "Rechercher...",
+    "nav" : {
+        "currentWeather":"Météo du jour",
+        "nextDaysInfos": "Les prochains jours",
+        "favorites":"Mes villes favorites"
+    },
+    "currentWeather" : {
+        "currentWeatherTag" : "Situation actuelle",
+        "temperatureMax" : "Température max",
+        "temperatureMin" : "Température min"
+    },
+    "humidity" : "Humidité",
+    "nextDaysInfos" : "",
+    "nextDaysPreview" : {
+        "nextDaysPreviewTag" :"Météo des prochains jours",
+        "seeMore" : "Voir plus"
+    },
+    "pressure" : "Pression atmosphérique",
+    "sun" : {
+        "sunTag" : "Lever et coucher du soleil",
+        "sunrise" : "Lever du soleil",
+        "sunset" : "Coucher du soleil"
+    },
+    "temperatureGraph" : "Courbe de températures des 5 prochains jours",
+    "wind" : "Vent"
+}

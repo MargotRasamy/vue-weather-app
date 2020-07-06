@@ -60,7 +60,7 @@ span {
   
     background-color: var(--colorPurpleLight);
     position: absolute;
-    left:-30px;
+    left: - 30px;
     bottom:0;
     width:31px;
     height: 100%;

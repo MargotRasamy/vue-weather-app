@@ -13,6 +13,7 @@
     <NextDaysInfos/>
     <NextDaysInfos/>
     <NextDaysInfos/>
+    
 
     </span>
     
@@ -41,7 +42,7 @@ export default {
 
 .button {
     display: inline-block;
-    border-radius: var(--borderRadiusMedium);
+    border-radius: var(--borderRadiusSmall);
     display: flex;
     align-items: center;
     justify-content: center;
