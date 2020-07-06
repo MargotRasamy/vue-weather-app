@@ -1,18 +1,82 @@
 <template>
   <div class="next-days-preview">
-    <p class="data-title">Météo des prochains jours</p>
+    <span>
+      <p class="data-title">Météo des prochains jours</p>
+      <router-link class="button button--purple" to="/nextdays">
+        Voir plus
+      </router-link>
+    </span>
+   
+
+    <span class="next-preview">
+    <NextDaysInfos/>
+    <NextDaysInfos/>
+    <NextDaysInfos/>
+    <NextDaysInfos/>
+
+    </span>
     
+
   </div>
 </template>
 
 <script>
+import NextDaysInfos from './NextDaysInfos.vue'
 export default {
-  name: 'NextDaysPreview'
+  name: 'NextDaysPreview',
+  components : {
+    NextDaysInfos
+  }
 }
 </script>
 
 <style scoped lang="scss">
+@import "../../assets/scss-variables/medias.scss";
+// button
+.next-days-preview span:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
 
+.button {
+    display: inline-block;
+    border-radius: var(--borderRadiusMedium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: fit-content;
+    padding:0 var(--spaceS);
+    height:fit-content;
+    box-shadow: var(--boxShadow);
+
+}
+
+.button--purple {
+    background-color: var(--colorPurple);
+    color: var(--colorWhite);
+    box-shadow: var(--boxShadowPurple);
+    &:hover{
+        background-color: var(--colorPurpleLight);
+        color: var(--colorWhite);
+    }
+}
+
+.next-preview {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: var(--gutterWidth);
+  @include large {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include  medium {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include  small {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 
 </style>

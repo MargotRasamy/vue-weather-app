@@ -45,7 +45,7 @@ export default {
 @import "../assets/scss-variables/medias.scss";
 nav {
     background-color: var(--colorPurpleLight);
-   
+    position: relative;
     height:100%;
     width:100%;
     border-radius: 0 var(--borderRadiusLarge) 0 0;
@@ -57,13 +57,13 @@ nav {
     }
 }
 span {
-    display: none;
+  
     background-color: var(--colorPurpleLight);
     position: absolute;
-    left:0;
+    left:-30px;
     bottom:0;
     width:31px;
-    height:calc(100% - 89px);
+    height: 100%;
     @include small{
         display: none;
     }

@@ -104,7 +104,7 @@ export default {
   .data-title{  
     text-align: left;
     align-self: flex-start;
-    padding-bottom: var(--spaceS);
+    padding-bottom: var(--spaceM);
   }
   
   .data-hours{
@@ -157,7 +157,7 @@ export default {
 
   // Yellow box
     &>:last-child {
-      background-color: var(--colorYellow);
+      background-color: var(--colorYellowLight);
       box-shadow: var(--boxShadowYellow);
       color: var(--colorMainBlack);
     }

@@ -1,6 +1,6 @@
 <template>
    <form class="input">
-                <input v-model="queryCity" type="text" id="search-input" name="searching" placeholder="Rechercher une ville"/>
+                <input v-model="queryCity" type="text" id="search-input" name="searching" placeholder="Rechercher..."/>
                 <button type="submit" alt="submit"/>
                 {{queryCity}}
     </form>
