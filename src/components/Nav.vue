@@ -57,6 +57,7 @@ nav {
     }
 }
 span {
+    display: none;
     background-color: var(--colorPurpleLight);
     position: absolute;
     left:0;
