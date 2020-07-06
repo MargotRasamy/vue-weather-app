@@ -46,13 +46,18 @@
         <p class="data-title">Lever et coucher du soleil</p>
         <div class="data-sun">
           <img src="../assets/weather-icons/sunrise-1.svg"/>
-          <p>Lever du soleil</p>
-          <p class="data-hours">06:03</p>
+          <span>
+            <p>Lever du soleil</p>
+            <p class="data-hours">06:03</p>
+          </span>
         </div>
         <div class="data-sun">
           <img src="../assets/weather-icons/sunset-1.svg"/>
-          <p>Coucher du soleil</p>
-          <p class="data-hours">18:06</p>
+          <span>
+            <p>Coucher du soleil</p>
+            <p class="data-hours">18:06</p>
+          </span>
+          
         </div>
         
       </div>
@@ -105,15 +110,18 @@ export default {
   }
   }
 
+  // all columns
   & .dashboard-data{
     display: flex;
     
     padding: var(--spaceS) var(--spaceM);
     border-radius: var(--borderRadiusLarge);
  
-    word-break: break-all;
+  
     white-space: break-spaces;
   }
+
+  // 1st columns
   & .dashboard-primary{
     grid-template-rows: auto;
     grid-column: 1 / 8;
@@ -126,6 +134,8 @@ export default {
        grid-column: 1 / 5;
     }
   }
+
+  // 2nd columns datas
   & .dashboard-secondary{
     grid-template-rows: auto auto auto 215px;
     grid-column: 8 / 11;
@@ -159,12 +169,16 @@ export default {
       margin: auto var(--spaceM);
     }
     .data-sun{
-      display: float;
+      display: flex;
+      align-items: center;
       width: 100%;
       text-align: left;
-      margin: var(--spaceM);
-      & img {
-        float:left
+      align-items: center;
+      padding: var(--spaceM) 0;
+      & span {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
       }
     }
     

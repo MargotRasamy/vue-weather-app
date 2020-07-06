@@ -28,7 +28,6 @@ export default {
   },
   methods: {
     openMenu : function () {
-      console.log(this.$refs)
       const navMenu = this.$refs.navMenu.$el.classList;
       navMenu.contains('closed-menu') ? navMenu.toggle('closed-menu') : navMenu.add('closed-menu')
     }
