@@ -2,7 +2,7 @@
   <div class="wind">
     <span>
           <p class="data-title">Vent</p>
-          <p class="data-numbers">12mph</p>
+          <p class="data-numbers">{{ todaysWeatherInfos.pressure }} mph</p>
         </span>
     <img src="../../assets/weather-icons/windy.svg"/>
     
@@ -10,8 +10,15 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
-  name: 'Wind'
+  name: 'Wind',
+    computed : {
+      ...mapGetters([
+          'todaysWeatherInfos'
+      ])
+    }
 }
 </script>
 

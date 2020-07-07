@@ -2,7 +2,7 @@
   <div class="pressure">
 
           <p class="data-title">Pression atmosphérique</p>
-          <p class="data-numbers">1000 hpa</p>
+          <p class="data-numbers">{{ todaysWeatherInfos.pressure }} hPa</p>
    
     <img src="../../assets/weather-icons/tide.svg"/>
     
@@ -10,8 +10,15 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
-  name: 'Pressure'
+  name: 'Pressure',
+    computed : {
+      ...mapGetters([
+          'todaysWeatherInfos'
+      ])
+    }
 }
 </script>
 

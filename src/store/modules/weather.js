@@ -102,12 +102,11 @@ const actions = {
            axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${payload}&units=metric&appid=5931f623ca1fae44f02bc1bf35cb9c7a&lang=fr`)
             .then(response => {
                 console.log(response.data)
-                commit('updateTodaysWeather', response.data.name)}
+                commit('updateTodaysWeather', response.data)}
             )
             .catch((err) => {
                 console.error('The city requested is not correct', err);
-            });
-            
+            });   
         }
         // If the city is not submitted, no request
         else {
@@ -120,7 +119,16 @@ const mutations = {
 
     // Setting the datas in the state so we can commit the actions
     updateTodaysWeather : (state, newUpdate) => {
-        state.cityInfos.cityName = newUpdate
+        state.cityInfos.cityName = newUpdate.name
+        state.todaysWeather.weatherCaption  = newUpdate.weather.description
+        state.todaysWeather.temperature = newUpdate.main.temp
+        state.todaysWeather.temperatureMin  = newUpdate.main.temp_min
+        state.todaysWeather.temperatureMax = newUpdate.main.temp_max
+        state.todaysWeather.humidity = newUpdate.main.humidity
+        state.todaysWeather.pressure = newUpdate.main.pressure
+        state.todaysWeather.wind = newUpdate.wind.speed
+        state.todaysWeather.sunrise = newUpdate.sys.sunrise
+        state.todaysWeather.sunset = newUpdate.sys.sunset
     }
 }
 

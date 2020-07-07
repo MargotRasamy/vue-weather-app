@@ -6,7 +6,7 @@
             <img src="../../assets/weather-icons/sunrise-1.svg"/>
             <span>
             <p>Lever du soleil</p>
-            <p class="data-hours">06:03</p>
+            <p class="data-hours">{{ todaysWeatherInfos.sunrise }}</p>
             </span>
         </div>
 
@@ -14,7 +14,7 @@
             <img src="../../assets/weather-icons/sunset-1.svg"/>
             <span>
             <p>Coucher du soleil</p>
-            <p class="data-hours">18:06</p>
+            <p class="data-hours">{{ todaysWeatherInfos.sunset }}</p>
             </span>
         </div>
     </span>
@@ -22,8 +22,15 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
-  name: 'Sun'
+  name: 'Sun',
+    computed : {
+      ...mapGetters([
+          'todaysWeatherInfos'
+      ])
+    }
 }
 </script>
 

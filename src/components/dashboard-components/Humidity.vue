@@ -2,7 +2,7 @@
   <div class="humidity">
     <span>
         <p class="data-title">Humidité</p>
-        <p class="data-numbers">78%</p>
+        <p class="data-numbers">{{ todaysWeatherInfos.humidity }} %</p>
     </span>     
     <img src="../../assets/weather-icons/humidity.svg"/>
     
@@ -10,8 +10,15 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
-  name: 'Humidity'
+  name: 'Humidity',
+    computed : {
+      ...mapGetters([
+          'todaysWeatherInfos'
+      ])
+    }
 }
 </script>
 
