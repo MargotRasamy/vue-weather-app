@@ -57,12 +57,11 @@ nav {
     }
 }
 span {
-  
     background-color: var(--colorPurpleLight);
     position: absolute;
     left: - 30px;
     bottom:0;
-    width:31px;
+    width:30px;
     height: 100%;
     @include small{
         display: none;
@@ -84,7 +83,7 @@ span {
 }
 .nav-active{
     background-color: var(--colorPurpleVeryLight);
-    border-radius: var(--borderRadiusMedium) 0 0 var(--borderRadiusMedium) ;
+    border-radius: var(--borderRadiusLarge) 0 0 var(--borderRadiusLarge) ;
     color: var(--colorPurple);
     
     @include small{

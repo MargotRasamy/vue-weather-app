@@ -42,13 +42,13 @@ export default {
   margin:auto 0;
     //input
     & input {
-        border-radius: var(--borderRadiusSmall);
+        border-radius: var(--borderRadiusMedium);
         box-sizing: border-box;
         border: none;
         box-shadow: var(--boxShadowPurple);
         height: 40px;
         width: 100%;
-        padding-left: var(--spaceS);
+        padding-left: var(--spaceM);
         font-size: var(--fontSizeMain);
        
     }

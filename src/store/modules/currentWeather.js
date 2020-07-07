@@ -1,9 +1,12 @@
 const state = {
-    // current weather
-    todaysWeather : {
+    // City looked up informations
+    cityInfos : {
         cityName : "Paris",
-        todayDate : "",
         favoriteCity : true,
+    },
+    // Current weather
+    todaysWeather : {
+        date : "",
         temperature : "28 degre",
         temperatureMin :"Minimale",
         temperatureMax : "Maximale:",
@@ -16,9 +19,7 @@ const state = {
     // 5 upcoming days weather
     nextDaysWeather : [
         {
-            cityName : "Paris",
-            todayDate : "",
-            favoriteCity : true,
+            date : "",
             temperature : "28 degre",
             temperatureMin :"Minimale",
             temperatureMax : "Maximale:",
@@ -29,9 +30,7 @@ const state = {
             sunset : "Couché de soleil"
         },
         {
-            cityName : "Paris",
-            todayDate : "",
-            favoriteCity : true,
+            date : "",
             temperature : "28 degre",
             temperatureMin :"Minimale",
             temperatureMax : "Maximale:",
@@ -42,9 +41,7 @@ const state = {
             sunset : "Couché de soleil"
         },
         {
-            cityName : "Paris",
-            todayDate : "",
-            favoriteCity : true,
+            date : "",
             temperature : "28 degre",
             temperatureMin :"Minimale",
             temperatureMax : "Maximale:",
@@ -55,9 +52,7 @@ const state = {
             sunset : "Couché de soleil"
         },
         {
-            cityName : "Paris",
-            todayDate : "",
-            favoriteCity : true,
+            date : "",
             temperature : "28 degre",
             temperatureMin :"Minimale",
             temperatureMax : "Maximale:",
@@ -68,9 +63,7 @@ const state = {
             sunset : "Couché de soleil"
         },
         {
-            cityName : "Paris",
-            todayDate : "",
-            favoriteCity : true,
+            date : "",
             temperature : "28 degre",
             temperatureMin :"Minimale",
             temperatureMax : "Maximale:",

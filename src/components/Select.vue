@@ -29,7 +29,7 @@ select {
    background-position:  95% center;
    width:100%;
    height:40px;
-   border-radius: var(--borderRadiusSmall);
+   border-radius: var(--borderRadiusMedium);
    border: none;
    outline:none;
    box-shadow: var(--boxShadowPurple);
