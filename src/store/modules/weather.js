@@ -25,6 +25,7 @@ const state = {
     cityInfos : {
         cityName : "Paris",
         favoriteCity : false,
+        favoriteCitiesList : []
     },
     // Current weather
     todaysWeather : {
@@ -175,6 +176,12 @@ const actions = {
             console.log('No city searched yet')
         }
     }
+
+
+    // Favorite a city to be able to see in the favorite section
+    // favoriteACity({state}, payload){
+    //     commit updateFavoriteCity
+    // }
 }
 
 
@@ -204,6 +211,12 @@ const mutations = {
         })
     
     }
+
+    // Setting favoriteCity to true 
+    // updateFavoriteCity : (state, newUpdate) => {
+    //     state.cityInfos.favoriteCity = newUpdate
+    //     state.cityInfos.favoriteCitiesList = state.cityInfos.favoriteCitiesList.push(state.cityInfos.cityName) 
+    // }
 
 }
 

@@ -19,7 +19,7 @@
           <div class="city-text">
             <span>
               <p class="city-name">{{ allCityInfos.cityName }}</p>
-              <img class="favorite" src="../../assets/favorite.svg" height="20px"/>
+              <Star />
             </span>
             <p>{{ todaysWeatherInfos.date }}</p>
           </div>
@@ -30,9 +30,13 @@
 </template>
 
 <script>
+import Star from '../Star.vue';
   import { mapGetters } from 'vuex';
   export default {
     name: 'CurrentWeather',
+    components : {
+      Star
+    },
     computed : {
       ...mapGetters([
           'allCityInfos',
@@ -44,6 +48,7 @@
 
 
 <style scoped lang="scss">
+
   @import "../../assets/scss-variables/medias.scss";
 
   .current-weather--details{

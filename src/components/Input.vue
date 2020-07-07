@@ -36,10 +36,6 @@ export default {
         // Reset input field to empty after submission
         this.queryCity = ""
     }
-  },
-  // Fetch the datas when the vue has already been created  
-   created(){
-this.queryCity = ""
   }
   
 }

@@ -2,7 +2,7 @@
     <div class="favorite-city">
         <span>
             <p class="favorite-city--name">London, GB</p>
-            <img class="favorite" src="../../assets/favorite.svg" height="20px"/>
+            <Star/>
         </span>
         <span>
             <img class="flag" src="https://www.countryflags.io/gb/shiny/64.png"/>
@@ -13,8 +13,13 @@
 </template>
 
 <script>
+import Star from '../Star.vue';
+
 export default {
-    name: 'FavoriteCity'
+    name: 'FavoriteCity',
+    components : {
+        Star
+    }
 }
 </script>
 
