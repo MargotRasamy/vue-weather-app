@@ -6,10 +6,10 @@
       <span class="temperature-details">
           <img src="../../assets/sky.jpg"/>
           <div class="temperature-text">
-            <p>26°</p>
-            <p>Ciel éclairé, ensoleillé</p>
-            <p>Température max : 27°</p>
-            <p>Température min : 15°</p>
+            <p>{{ todaysWeatherInfos.temperature }}</p>
+            <p>{{ todaysWeatherInfos.weatherCaption }}</p>
+            <p>Température max : {{ todaysWeatherInfos.temperatureMax }}</p>
+            <p>Température min : {{ todaysWeatherInfos.temperatureMin }}</p>
     
           </div>
       </span>
@@ -17,14 +17,11 @@
       <span class="city-details">
           <!-- <img src="../../assets/favorite.svg"/> -->
           <div class="city-text">
-            
             <span>
-              <p class="city-name">Paris</p>
+              <p class="city-name">{{ allCityInfos.cityName }}</p>
               <img class="favorite" src="../../assets/favorite.svg" height="20px"/>
             </span>
-            <p>06 Septembre 2020</p>
-            
-
+            <p>{{ todaysWeatherInfos.date }}</p>
           </div>
           <img class="country-flag" src="../../assets/fr.png"/>
       </span>
@@ -33,10 +30,23 @@
 </template>
 
 <script>
-export default {
-  name: 'CurrentWeather'
-}
+  import { mapGetters, mapActions } from 'vuex';
+  export default {
+    name: 'CurrentWeather',
+    computed : {
+      ...mapGetters([
+          'allCityInfos',
+          'todaysWeatherInfos'
+      ])
+    },
+    methods : {
+      ...mapActions([
+          'fetchCurrentWeather'
+      ])
+    }
+  }
 </script>
+
 
 <style scoped lang="scss">
   @import "../../assets/scss-variables/medias.scss";
@@ -57,14 +67,9 @@ export default {
       margin-right: var(--spaceM);
       height:120px;
     }
-    // & .temperature-text{
-      
-    // }
     & p:first-child{
       font-size: 50px;
-      font-weight: bold;
-     
-      
+      font-weight: bold;  
     }
   }
 
@@ -91,8 +96,7 @@ export default {
       justify-content: space-around;
       text-align: center;
       margin-bottom: var(--spaceM);
-      & .country-flag{
-      }
+
     }
   }
   

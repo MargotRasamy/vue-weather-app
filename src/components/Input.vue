@@ -1,8 +1,7 @@
 <template>
    <form class="input">
-                <input v-model="queryCity" v-on:keyup.enter="fetchCurrentWeather"  type="text" id="search-input" name="searching" placeholder="Rechercher..."/>
-                <button type="submit" v-on:click="fetchCurrentWeather" alt="submit"/>
-                <p v-bind="allCityInfos">{{ allCityInfos.cityName }}</p>
+                <input v-model="queryCity" v-on:keyup.enter="submit" type="text" id="search-input" placeholder="Rechercher..."/>
+                <button v-on:click.prevent="submit" alt="submit"/>
     </form>
   
 </template>
@@ -16,11 +15,10 @@ export default {
   name: 'Input',
   data(){
       return {
-          queryCity: "",
-          city : "Paris"
+          queryCity: ""
       }
   },
-  // Getters to use   
+//   Getters to use   
   computed : {
     ...mapGetters([
         'allCityInfos'
@@ -29,12 +27,13 @@ export default {
   methods : {
     ...mapActions([
         'fetchCurrentWeather'
-    ])
+    ]),
+    submit(){
+        this.fetchCurrentWeather(this.queryCity)
+    }
   },
   // Fetch the datas when the vue has already been created  
-  mounted(){
-      this.fetchCurrentWeather()
-  }
+
   
 }
 </script>
