@@ -1,7 +1,7 @@
 <template>
   <div class="next-days-preview">
     <span>
-      <p class="data-title">Météo des prochains jours</p>
+      <p class="data-title">Météo des prochaines heures</p>
       <router-link class="button button--purple" to="/nextdays">
         Voir plus
       </router-link>

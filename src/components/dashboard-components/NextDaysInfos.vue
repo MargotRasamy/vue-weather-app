@@ -1,10 +1,9 @@
 <template>
   <div class="next-days-infos">
-    <p>05/07/2020</p>
+    <p>05/07/2020 à 05:56</p>
     <img src="../../assets/sky.jpg"/>
     <span>
         <p>31°</p>
-        <p>18°</p>
     </span>
 
   </div>
@@ -21,17 +20,16 @@ export default {
     .next-days-infos{
         width: min-content;
         margin: auto;
-        & span {
-            display: flex;
-            justify-content: space-around;
-            font-weight: bold;
-            & p:first-child {
-                color: var(--colorPurple);
-            }
-            & p:last-child {
-                color: var(--colorYellow);
-            }
+        & p:first-child {
+          font-weight: bold;
+          color: var(--colorYellow);
         }
+        & p:last-child {
+            font-weight: bold;
+            color: var(--colorPurple);
+        }
+            
+        
     }
 
 </style>

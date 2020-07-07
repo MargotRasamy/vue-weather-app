@@ -2,7 +2,6 @@
    <form class="input">
                 <input v-model="queryCity"  type="text" id="search-input" placeholder="Rechercher..."/>
                 <button v-on:click.prevent="submit" alt="submit"/>
-                {{queryCity}}
     </form>
   
 </template>
@@ -27,12 +26,13 @@ export default {
   },
   methods : {
     ...mapActions([
-        'fetchCurrentWeather'
+        'fetchCurrentWeather',
+        'fetchNextDaysWeather'
     ]),
     submit(){
         
         this.fetchCurrentWeather(this.queryCity)
-          
+        this.fetchNextDaysWeather(this.queryCity)
         // Reset input field to empty after submission
         this.queryCity = ""
     }
