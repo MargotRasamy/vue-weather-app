@@ -1,37 +1,48 @@
 <template>
    <form class="input">
-                <input v-model="queryCity" v-on:click="getWeather" type="text" id="search-input" name="searching" placeholder="Rechercher..."/>
-                <button type="submit" alt="submit"/>
-                
+                <input v-model="queryCity" v-on:keyup.enter="fetchCurrentWeather"  type="text" id="search-input" name="searching" placeholder="Rechercher..."/>
+                <button type="submit" v-on:click="getWeather" alt="submit"/>
+                <p v-bind="allCityInfos">{{ allCityInfos.cityName }}</p>
     </form>
   
 </template>
 
 <script>
-// Import axios for calls
-const axios = require('axios');
 
-// Import store
-import store from '../store/store.js'
+// Import store Vuex
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'Input',
   data(){
       return {
-          apiKey : "5931f623ca1fae44f02bc1bf35cb9c7a",
           queryCity: "",
-          weather : {}
+          city : "Paris"
       }
+  },
+  // Getters to use   
+  computed : {
+    ...mapGetters([
+        'allCityInfos'
+    ])
   },
   methods : {
     getWeather() {
-        console.log(store.apiKey)
-        axios.get(`http://api.openweathermap.org/data/2.5/weather?q=Londres&units=metric&appid=${store.apiKey}`)
-        .then(response => console.log(response.data) );
-        axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=Paris&appid=${store.apiKey}&lang=fr`)
-        .then(response => console.log(response.data) )
-    }
+        console.log(this.apiKey)
+        // axios.get(`http://api.openweathermap.org/data/2.5/weather?q=Londres&units=metric&appid=${this.apiKey}&lang=fr`)
+        // .then(response => console.log(response.data) );
+        // axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=Paris&units=metric&appid=${this.apiKey}&lang=fr`)
+        // .then(response => console.log(response.data) )
+    },
+    ...mapActions([
+        'fetchCurrentWeather'
+    ])
+  },
+  // Fetch the datas when the vue has already been created  
+  mounted(){
+      this.fetchCurrentWeather(this.city)
   }
+  
 }
 </script>
 

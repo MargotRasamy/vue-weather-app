@@ -5,11 +5,11 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 // Import our modules
-import currentWeather from './modules/currentWeather'
+import weather from './modules/weather'
 
 // Create the store
 export default new Vuex.Store({
     modules : {
-        currentWeather
+        weather
     }
 });
