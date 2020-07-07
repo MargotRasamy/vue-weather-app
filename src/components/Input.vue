@@ -1,7 +1,8 @@
 <template>
    <form class="input">
-                <input v-model="queryCity" v-on:keyup.enter="submit" type="text" id="search-input" placeholder="Rechercher..."/>
+                <input v-model="queryCity"  type="text" id="search-input" placeholder="Rechercher..."/>
                 <button v-on:click.prevent="submit" alt="submit"/>
+                {{queryCity}}
     </form>
   
 </template>
@@ -29,11 +30,17 @@ export default {
         'fetchCurrentWeather'
     ]),
     submit(){
+        
         this.fetchCurrentWeather(this.queryCity)
+          
+        // Reset input field to empty after submission
+        this.queryCity = ""
     }
   },
   // Fetch the datas when the vue has already been created  
-
+   created(){
+this.queryCity = ""
+  }
   
 }
 </script>

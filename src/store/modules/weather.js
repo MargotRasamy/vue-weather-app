@@ -13,12 +13,12 @@ const state = {
     todaysWeather : {
         date : "06/09/2020",
         weatherCaption : "Ciel éclairé",
-        temperature : "28°",
-        temperatureMin :"15°",
-        temperatureMax : "31°",
-        humidity : "78%",
-        pressure : "1016 hPa",
-        wind : "12 mph",
+        temperature : "28",
+        temperatureMin :"15",
+        temperatureMax : "31",
+        humidity : "78",
+        pressure : "1016",
+        wind : "12",
         sunrise : "06:18",
         sunset : "17:56"
     },
@@ -27,60 +27,60 @@ const state = {
         {
             date : "06/09/2020",
             weatherCaption : "Ciel éclairé",
-            temperature : "28°",
-            temperatureMin :"15°",
-            temperatureMax : "31°",
-            humidity : "78%",
-            pressure : "1016 hPa",
-            wind : "12 mph",
+            temperature : "28",
+            temperatureMin :"15",
+            temperatureMax : "31",
+            humidity : "78",
+            pressure : "1016",
+            wind : "12",
             sunrise : "06:18",
             sunset : "17:56"
         },
         {
             date : "06/09/2020",
             weatherCaption : "Ciel éclairé",
-            temperature : "28°",
-            temperatureMin :"15°",
-            temperatureMax : "31°",
-            humidity : "78%",
-            pressure : "1016 hPa",
-            wind : "12 mph",
+            temperature : "28",
+            temperatureMin :"15",
+            temperatureMax : "31",
+            humidity : "78",
+            pressure : "1016",
+            wind : "12",
             sunrise : "06:18",
             sunset : "17:56"
         },
         {
             date : "06/09/2020",
             weatherCaption : "Ciel éclairé",
-            temperature : "28°",
-            temperatureMin :"15°",
-            temperatureMax : "31°",
-            humidity : "78%",
-            pressure : "1016 hPa",
-            wind : "12 mph",
+            temperature : "28",
+            temperatureMin :"15",
+            temperatureMax : "31",
+            humidity : "78",
+            pressure : "1016",
+            wind : "12",
             sunrise : "06:18",
             sunset : "17:56"
         },
         {
             date : "06/09/2020",
             weatherCaption : "Ciel éclairé",
-            temperature : "28°",
-            temperatureMin :"15°",
-            temperatureMax : "31°",
-            humidity : "78%",
-            pressure : "1016 hPa",
-            wind : "12 mph",
+            temperature : "28",
+            temperatureMin :"15",
+            temperatureMax : "31",
+            humidity : "78",
+            pressure : "1016",
+            wind : "12",
             sunrise : "06:18",
             sunset : "17:56"
         },
         {
             date : "06/09/2020",
             weatherCaption : "Ciel éclairé",
-            temperature : "28°",
-            temperatureMin :"15°",
-            temperatureMax : "31°",
-            humidity : "78%",
-            pressure : "1016 hPa",
-            wind : "12 mph",
+            temperature : "28",
+            temperatureMin :"15",
+            temperatureMax : "31",
+            humidity : "78",
+            pressure : "1016",
+            wind : "12",
             sunrise : "06:18",
             sunset : "17:56"
         }
@@ -98,12 +98,14 @@ const actions = {
 
     // Actions for weather fetching via API
     fetchCurrentWeather({commit, state}, payload) {
-        if(state.cityInfos.cityName) {
+        if(state.cityInfos.cityName !== "") {
            axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${payload}&units=metric&appid=5931f623ca1fae44f02bc1bf35cb9c7a&lang=fr`)
-            .then(response => {
-                console.log(response.data)
-                commit('updateTodaysWeather', response.data)}
-            )
+           .then(response => {
+                if (response.status === 200){
+                   console.log(response.data) 
+                   commit('updateTodaysWeather', response.data)
+                }
+            })
             .catch((err) => {
                 console.error('The city requested is not correct', err);
             });   

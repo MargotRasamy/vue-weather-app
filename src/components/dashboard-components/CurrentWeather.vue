@@ -6,10 +6,10 @@
       <span class="temperature-details">
           <img src="../../assets/sky.jpg"/>
           <div class="temperature-text">
-            <p>{{ todaysWeatherInfos.temperature }}</p>
+            <p>{{ todaysWeatherInfos.temperature }}°</p>
             <p>{{ todaysWeatherInfos.weatherCaption }}</p>
-            <p>Température max : {{ todaysWeatherInfos.temperatureMax }}</p>
-            <p>Température min : {{ todaysWeatherInfos.temperatureMin }}</p>
+            <p>Température max : {{ todaysWeatherInfos.temperatureMax }}°</p>
+            <p>Température min : {{ todaysWeatherInfos.temperatureMin }}°</p>
     
           </div>
       </span>
