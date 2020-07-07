@@ -6,7 +6,7 @@ const state = {
     apiKey : "5931f623ca1fae44f02bc1bf35cb9c7a",
     // City looked up informations
     cityInfos : {
-        cityName : "Tokyo",
+        cityName : "",
         favoriteCity : false,
     },
     // Current weather
@@ -89,10 +89,20 @@ const getters = {
 }
 
 const actions = {
-    async fetchCurrentWeather({state}) {
-        const response = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${state.cityInfos.cityName}&units=metric&appid=5931f623ca1fae44f02bc1bf35cb9c7a&lang=fr`)
-        
-        console.log(response)
+
+    // Actions for weather fetching via API
+    fetchCurrentWeather({state}) {
+        if(state.cityInfos.cityName) {
+           axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${state.cityInfos.cityName}&units=metric&appid=5931f623ca1fae44f02bc1bf35cb9c7a&lang=fr`)
+            .then(response => console.log(response.data))
+            .catch((err) => {
+            console.error('The city requested is not correct', err);
+            }); 
+        }
+        // If the city is not submitted, no request
+        else {
+            console.log('No city searched yet')
+        }
     }
 }
 

@@ -1,7 +1,7 @@
 <template>
    <form class="input">
                 <input v-model="queryCity" v-on:keyup.enter="fetchCurrentWeather"  type="text" id="search-input" name="searching" placeholder="Rechercher..."/>
-                <button type="submit" v-on:click="getWeather" alt="submit"/>
+                <button type="submit" v-on:click="fetchCurrentWeather" alt="submit"/>
                 <p v-bind="allCityInfos">{{ allCityInfos.cityName }}</p>
     </form>
   
@@ -27,20 +27,13 @@ export default {
     ])
   },
   methods : {
-    getWeather() {
-        console.log(this.apiKey)
-        // axios.get(`http://api.openweathermap.org/data/2.5/weather?q=Londres&units=metric&appid=${this.apiKey}&lang=fr`)
-        // .then(response => console.log(response.data) );
-        // axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=Paris&units=metric&appid=${this.apiKey}&lang=fr`)
-        // .then(response => console.log(response.data) )
-    },
     ...mapActions([
         'fetchCurrentWeather'
     ])
   },
   // Fetch the datas when the vue has already been created  
   mounted(){
-      this.fetchCurrentWeather(this.city)
+      this.fetchCurrentWeather()
   }
   
 }
