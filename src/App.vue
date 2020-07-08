@@ -5,18 +5,23 @@
     <Input/>
     <Select/>
     <Nav ref="navMenu" class="closed-menu"/>
+  
+    <!-- router : main content (Show router only if there is any content: city searched) -->
+      <router-view  v-if="allCityInfos.cityName"></router-view>
 
-    <!-- router : main content -->
-      <router-view></router-view>
+    <!-- If there are no cities looked for, no informations to show -->
+      <Welcome v-if="!allCityInfos.cityName"/>
+      
   </div>
 </template>
 
 <script>
-// import Dashboard from './views/Dashboard.vue'
 import Logo from './components/Logo.vue';
 import Input from './components/Input.vue';
 import Select from './components/Select.vue';
 import Nav from './components/Nav.vue';
+import Welcome from './components/Welcome.vue';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'App',
@@ -24,13 +29,19 @@ export default {
     Logo,
     Input,
     Select,
-    Nav
+    Nav,
+    Welcome
   },
   methods: {
     openMenu : function () {
       const navMenu = this.$refs.navMenu.$el.classList;
       navMenu.contains('closed-menu') ? navMenu.toggle('closed-menu') : navMenu.add('closed-menu')
     }
+  },
+  computed : {
+    ...mapGetters([
+        'allCityInfos'
+    ])
   }
 }
 </script>

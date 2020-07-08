@@ -61,7 +61,8 @@ span {
     position: absolute;
     left: - 30px;
     bottom:0;
-    width:30.5px;
+    width:32px;
+    z-index: -1;
     height: 100%;
     @include small{
         display: none;

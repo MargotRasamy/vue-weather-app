@@ -1,9 +1,10 @@
 <template>
-  <div class="next-days-infos">
-    <p class="temp">31°</p>
-    <i class="weather-icons wi wi-sleet"></i>
+  <div class="next-days-infos" >
+    <p>{{ caption }}</p>
+    <p class="temp">{{ temperature }} °</p>
+    <i class="weather-icons wi" :class="weatherIcons(icon)"></i>
     <span>
-        <p class="date">05/07/2020 | 05:56</p>
+        <p class="date">{{ date }} | {{ time }}</p>
     </span>
 
   </div>
@@ -16,6 +17,7 @@ export default {
   data: () => ({
       weatherIcons
   }),
+  props : ['temperature', 'date', 'time', 'caption', 'icon']
 }
 </script>
 

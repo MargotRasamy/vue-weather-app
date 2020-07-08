@@ -10,8 +10,8 @@ const state = {
     apiKey : "5931f623ca1fae44f02bc1bf35cb9c7a",
     // City looked up informations
     cityInfos : {
-        cityName : "Paris",
-        countryCode : "FR",
+        cityName : "",
+        countryCode : "",
         favoriteCity : false
     },
     
@@ -20,20 +20,21 @@ const state = {
     ],
     // Current weather
     todaysWeather : {
-        date : "06/09/2020",
-        weatherCaption : "Ciel éclairé",
-        temperature : "28",
-        temperatureMin :"15",
-        temperatureMax : "31",
-        humidity : "78",
-        pressure : "1016",
-        wind : "12",
-        sunrise : "06:18",
-        sunset : "17:56",
-        iconId : "03d"
+        date : "",
+        weatherCaption : "",
+        temperature : "",
+        temperatureMin :"",
+        temperatureMax : "",
+        humidity : "",
+        pressure : "",
+        wind : "",
+        sunrise : "",
+        sunset : "",
+        iconId : ""
     },
     // Next days weather
-    nextDaysWeather : []
+    nextDaysWeather : [
+    ]
 }
 
 const getters = {
@@ -64,7 +65,7 @@ const actions = {
 
     // Actions for weather fetching via API
     fetchCurrentWeather({commit, state}, payload) {
-        if(state.cityInfos.cityName !== "") {
+        
             axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${payload}&units=metric&appid=${state.apiKey}&lang=fr`)
            .then(response => {
                 if (response.status === 200){
@@ -75,16 +76,12 @@ const actions = {
             .catch((err) => {
                 console.error('The city requested is not correct', err);
             });   
-        }
-        // If the city is not submitted, no request
-        else {
-            console.log('No city searched yet')
-        }
+        
     },
 
     // Actions for the next days weather fetching via API
     fetchNextDaysWeather({commit, state}, payload) {
-        if(state.cityInfos.cityName) {
+      
            axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${payload}&units=metric&appid=${state.apiKey}&lang=fr`)
            .then(response => {
                 if (response.status === 200){
@@ -95,11 +92,9 @@ const actions = {
             .catch((err) => {
                 console.error('The city requested is not correct', err);
             });   
-        }
-        // If the city is not submitted, no request
-        else {
-            console.log('No city searched yet')
-        }
+        
+  
+       
     },
 
     // Favorite a city to be able to see in the favorite section
@@ -149,12 +144,14 @@ const mutations = {
             state.nextDaysWeather[i].weatherCaption = capitalizeFirstLetter(newUpdate[i].weather[0].description)
             state.nextDaysWeather[i].temperature = newUpdate[i].main.temp
             state.nextDaysWeather[i].date = convertDate(newUpdate[i].dt)
+            state.nextDaysWeather[i].time = convertHours(newUpdate[i].dt)
             state.nextDaysWeather[i].temperatureMin  = newUpdate[i].main.temp_min
             state.nextDaysWeather[i].temperatureMax = newUpdate[i].main.temp_max
             state.nextDaysWeather[i].humidity = newUpdate[i].main.humidity
             state.nextDaysWeather[i].pressure = newUpdate[i].main.pressure
             state.nextDaysWeather[i].wind = newUpdate[i].wind.speed
             state.nextDaysWeather[i].iconId = newUpdate[i].weather[0].icon
+            state.nextDaysWeather[i].id = newUpdate[i].dt
         
         }
        

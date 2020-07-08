@@ -8,11 +8,15 @@
     </span>
    
 
-    <span class="next-preview">
-      <NextDaysInfos/>
-      <NextDaysInfos/>
-      <NextDaysInfos/>
-      <NextDaysInfos/>
+    <span class="next-preview" >
+      <div class="container" v-for="i in 4" v-bind:key="i">
+        <NextDaysInfos 
+                :icon="nextDaysWeatherInfos[i].iconId"
+                :date="nextDaysWeatherInfos[i].date"
+                :time="nextDaysWeatherInfos[i].time"
+                :temperature="nextDaysWeatherInfos[i].temperature"/>
+      </div>
+      
     </span>
     
 
@@ -20,12 +24,20 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import NextDaysInfos from './NextDaysInfos.vue'
 export default {
   name: 'NextDaysPreview',
   components : {
     NextDaysInfos
+  },
+  computed : {
+    ...mapGetters([
+        'allCityInfos',
+        'nextDaysWeatherInfos'
+    ])
   }
+  
 }
 </script>
 
