@@ -1,31 +1,45 @@
 <template>
   <div class="next-days-infos">
-    <p>05/07/2020 à 05:56</p>
-    <img src="../../assets/sky.jpg"/>
+    <p class="temp">31°</p>
+    <i class="weather-icons wi wi-sleet"></i>
     <span>
-        <p>31°</p>
+        <p class="date">05/07/2020 | 05:56</p>
     </span>
 
   </div>
 </template>
 
 <script>
+import weatherIcons from '../../staticContent/weatherIcons.js'
 export default {
-  name: 'NextDaysInfos'
+  name: 'NextDaysInfos',
+  data: () => ({
+      weatherIcons
+  }),
 }
 </script>
 
 <style scoped lang="scss">
+    .weather-icons {
+      font-size: 60px;
+      margin: var(--spaceM) auto;
+    }
 
     .next-days-infos{
-        width: min-content;
+        background-color: var(--colorWhite);
         margin: auto;
-        & p:first-child {
+        padding:5px;
+        border: 5px solid var(--colorPurpleVeryLight);
+        box-shadow: var(--boxShadowPurple);
+        border-radius: 20px;
+      
+        .temp {
           font-weight: bold;
           color: var(--colorYellow);
+          font-size: 21px;
         }
-        & p:last-child {
-            font-weight: bold;
+        .date {
+       
             color: var(--colorPurple);
         }
             

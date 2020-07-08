@@ -9,12 +9,10 @@
     <FavoriteCity/>
     <FavoriteCity/>
     <FavoriteCity/>
-    <FavoriteCity/>
-    <FavoriteCity/>
-    <FavoriteCity/>
-    <FavoriteCity/>
-    <FavoriteCity/>
-    <FavoriteCity/>
+    
+
+
+   
   </div>
 </template>
 
@@ -37,7 +35,7 @@ export default {
 .favorites{
   display: grid;
   grid-template-columns: repeat(4,1fr);
-  grid-template-rows: repeat(4,1fr);
+  grid-template-rows: repeat(3,1fr);
   grid-gap: var(--gutterWidth);
   @include small{
     grid-template-columns: repeat(2,1fr);

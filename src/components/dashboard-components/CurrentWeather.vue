@@ -59,6 +59,8 @@ import { mapGetters, mapActions } from 'vuex';
 <style scoped lang="scss">
 
   @import "../../assets/scss-variables/medias.scss";
+  
+ 
   .weather-icons {
     font-size: 75px;
     margin: auto var(--spaceM);
@@ -75,7 +77,6 @@ import { mapGetters, mapActions } from 'vuex';
     display: flex;
     text-align: left;
     justify-content: space-around;
-    margin-bottom: var(--spaceM);
 
     & img{
       margin-right: var(--spaceM);

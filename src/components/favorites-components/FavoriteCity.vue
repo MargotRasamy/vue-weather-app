@@ -1,13 +1,10 @@
 <template>
     <div class="favorite-city">
-        <span>
-            <p class="favorite-city--name">London, GB</p>
-            <Star/>
-        </span>
-        <span>
-            <!-- <img class="flag" v-bind:src="'https://www.countryflags.io/' + allCityInfos.countryCode + '/shiny/64.png'"/> -->
+            <Star class="favorite"/>
             <img class="flag" src="https://www.countryflags.io/gb/shiny/64.png"/>
-        </span>
+            <!-- <img class="flag" v-bind:src="'https://www.countryflags.io/' + allCityInfos.countryCode + '/shiny/64.png'"/> -->
+             <p class="favorite-city--name">London, GB</p>
+        
     </div>
 </template>
 
@@ -26,19 +23,24 @@ export default {
 .favorite-city{
     display: flex;
     flex-direction: column;
+
     padding:var(--spaceM);
     background-color: var(--colorWhite);
     border-radius: var(--borderRadiusMedium);
     box-shadow: var(--boxShadowPurple);
-    & span {
-        display: float;
-        & .favorite-city--name{
-            float:left;
+    &>:first-child{
+        margin-left:auto;
+    }
+  
+    .favorite-city--name{
             font-size: 21px;
-        }
-        & .favorite {
-            float: right;
-        }
+            font-weight:bold;
+            margin: auto;
+    }
+    
+    .flag{
+        width: 70px;
+        margin: auto;
     }
 }
 </style>

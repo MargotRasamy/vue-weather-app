@@ -65,6 +65,13 @@ a{
     display :none;
   }
 }
+html::-webkit-scrollbar {
+  width: 10px;
+  background-color: #d2d2ff; 
+}
+html::-webkit-scrollbar-thumb {
+    background: #706bff; 
+}
 #app {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;

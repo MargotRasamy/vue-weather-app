@@ -19,6 +19,8 @@ export default {
 <style scoped lang="scss">
     .favorite{
         text-decoration: none;
+        width:fit-content;
+        height:fit-content
     }
     .favorite:hover .star path{
         fill: var(--colorYellowLight);

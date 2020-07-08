@@ -99,7 +99,9 @@ export default {
   // Common style for all boxes of weather datas
   & .dashboard-data{
     border-radius: var(--borderRadiusLarge);
-    padding: var(--spaceS) var(--spaceM);
+    &>*{
+      margin: var(--spaceS) var(--spaceM);
+    }
   }
   .data-title{  
     text-align: left;
@@ -165,8 +167,7 @@ export default {
 
     //All boxes of 2nd columns datas
     & > * > :only-child {
-      width: 100%;
-      height:100%;
+
       & img {
         height: 45px;
         

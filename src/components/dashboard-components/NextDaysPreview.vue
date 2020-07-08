@@ -9,12 +9,10 @@
    
 
     <span class="next-preview">
-    <NextDaysInfos/>
-    <NextDaysInfos/>
-    <NextDaysInfos/>
-    <NextDaysInfos/>
-    
-
+      <NextDaysInfos/>
+      <NextDaysInfos/>
+      <NextDaysInfos/>
+      <NextDaysInfos/>
     </span>
     
 
@@ -38,6 +36,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  
 }
 
 .button {
