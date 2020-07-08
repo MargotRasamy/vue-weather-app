@@ -4,7 +4,7 @@
 
     <div class="current-weather--details">
       <span class="temperature-details">
-          <img src="../../assets/sky.jpg"/>
+          <i class="weather-icons wi" :class="weatherIcons(todaysWeatherInfos.iconId)"></i>
           <div class="temperature-text">
             <p>{{ todaysWeatherInfos.temperature }}°</p>
             <p>{{ todaysWeatherInfos.weatherCaption }}</p>
@@ -29,12 +29,15 @@
 </template>
 
 <script>
-
+import weatherIcons from '../../staticContent/weatherIcons.js'
 import Star from '../Star.vue';
 import { mapGetters, mapActions } from 'vuex';
 
   export default {
     name: 'CurrentWeather',
+    data: () => ({
+      weatherIcons
+    }),
     components : {
       Star
     },
@@ -56,7 +59,10 @@ import { mapGetters, mapActions } from 'vuex';
 <style scoped lang="scss">
 
   @import "../../assets/scss-variables/medias.scss";
-
+  .weather-icons {
+    font-size: 75px;
+    margin: auto var(--spaceM);
+  }
   .current-weather--details{
     display: flex;
     justify-content: space-between;
@@ -68,6 +74,8 @@ import { mapGetters, mapActions } from 'vuex';
   .temperature-details{
     display: flex;
     text-align: left;
+    justify-content: space-around;
+    margin-bottom: var(--spaceM);
 
     & img{
       margin-right: var(--spaceM);
@@ -76,6 +84,15 @@ import { mapGetters, mapActions } from 'vuex';
     & p:first-child{
       font-size: 50px;
       font-weight: bold;  
+    }
+    & p:nth-child(2){
+      font-weight: bold;
+    }
+    
+    @include small{
+      flex-direction: row-reverse;
+
+      text-align: center;
     }
   }
 

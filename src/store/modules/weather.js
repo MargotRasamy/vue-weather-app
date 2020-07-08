@@ -14,8 +14,10 @@ const state = {
         countryCode : "FR",
         favoriteCity : false
     },
+    
     // Favorites
-    favoriteCitiesList : [],
+    favoriteCitiesList : [
+    ],
     // Current weather
     todaysWeather : {
         date : "06/09/2020",
@@ -27,7 +29,8 @@ const state = {
         pressure : "1016",
         wind : "12",
         sunrise : "06:18",
-        sunset : "17:56"
+        sunset : "17:56",
+        iconId : "03d"
     }
 }
 
@@ -127,27 +130,24 @@ const mutations = {
         state.todaysWeather.wind = newUpdate.wind.speed
         state.todaysWeather.sunrise = convertHours(newUpdate.sys.sunrise)
         state.todaysWeather.sunset = convertHours(newUpdate.sys.sunset)
+        state.todaysWeather.iconId = newUpdate.weather[0].icon
+
+        if(!state.favoriteCitiesList.includes(state.cityInfos.cityName)){
+            state.cityInfos.favoriteCity = false
+        } else {
+            state.cityInfos.favoriteCity = true
+        }
     },
 
     // Setting favoriteCity to true 
     updateFavoriteCitiesList : (state, newUpdate) => {
         state.cityInfos.favoriteCity = newUpdate;
-
+        
+         
         // If the city was favorited (true), we add to the list
 
-        for(let i = 0; i< state.favoriteCitiesList.length; i++){
-            state.favoriteCitiesList[i]
-            if((state.cityInfos.favoriteCity) && (state.favoriteCitiesList[i] !== state.cityInfos) ) {
-                state.favoriteCitiesList.push(state.cityInfos) 
-            }
-            else if ((!state.cityInfos.favoriteCity) && (state.favoriteCitiesList[i] === state.cityInfos)) {
-                state.favoriteCitiesList = state.favoriteCitiesList.filter(city => city !== state.cityInfos)
-            }
-            else {
-                console.log('hey')
-            }
-
-        }
+       
+        
         
         
         

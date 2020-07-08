@@ -40,6 +40,7 @@ export default {
   @import "./assets/scss-variables/spaces.scss";
   @import "./assets/scss-variables/medias.scss";
   @import "./assets/scss-variables/misc.scss";
+  @import "./assets/weather-addon/css/weather-icons.min.css";
 
 body{
   margin:0;
@@ -54,6 +55,10 @@ p{
 a{
   text-decoration: none;
 }
+// weather icons color
+.wi {
+    color: var(--colorPurple)
+  }
 
 .closed-menu{
   @include small{

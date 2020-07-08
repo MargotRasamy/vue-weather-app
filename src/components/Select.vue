@@ -19,12 +19,14 @@ export default {
 .select{
     margin: auto 0;
     width:100%;
+    
 }
 select {
    -webkit-appearance: none;
    -moz-appearance: none;
-   appearance: none;       /* Remove default arrow */
-   background-image: url('../assets/select.svg');   /* Add custom arrow */
+   background-color: var(--colorWhite);
+   appearance: none;
+   background-image: url('../assets/select.svg');
    background-repeat: no-repeat;
    background-position:  95% center;
    width:100%;
