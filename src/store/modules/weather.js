@@ -12,9 +12,10 @@ const state = {
     cityInfos : {
         cityName : "Paris",
         countryCode : "FR",
-        favoriteCity : false,
-        favoriteCitiesList : []
+        favoriteCity : false
     },
+    // Favorites
+    favoriteCitiesList : [],
     // Current weather
     todaysWeather : {
         date : "06/09/2020",
@@ -96,9 +97,16 @@ const actions = {
     },
 
     // Favorite a city to be able to see in the favorite section
-    // favoriteACity({state}, payload){
-    //     commit updateFavoriteCity
-    // }
+    // Payload will be cityinfos
+    toggleFavoriteCity({commit, state}){ console.log('hey')
+        if(!state.cityInfos.favoriteCity) {
+            commit('updateFavoriteCitiesList', true)
+           
+        }
+        else {
+            commit('updateFavoriteCitiesList', false)
+        }
+    }
 }
 
 
@@ -122,10 +130,30 @@ const mutations = {
     },
 
     // Setting favoriteCity to true 
-    // updateFavoriteCity : (state, newUpdate) => {
-    //     state.cityInfos.favoriteCity = newUpdate
-    //     state.cityInfos.favoriteCitiesList = state.cityInfos.favoriteCitiesList.push(state.cityInfos.cityName) 
-    // }
+    updateFavoriteCitiesList : (state, newUpdate) => {
+        state.cityInfos.favoriteCity = newUpdate;
+
+        // If the city was favorited (true), we add to the list
+
+        for(let i = 0; i< state.favoriteCitiesList.length; i++){
+            state.favoriteCitiesList[i]
+            if((state.cityInfos.favoriteCity) && (state.favoriteCitiesList[i] !== state.cityInfos) ) {
+                state.favoriteCitiesList.push(state.cityInfos) 
+            }
+            else if ((!state.cityInfos.favoriteCity) && (state.favoriteCitiesList[i] === state.cityInfos)) {
+                state.favoriteCitiesList = state.favoriteCitiesList.filter(city => city !== state.cityInfos)
+            }
+            else {
+                console.log('hey')
+            }
+
+        }
+        
+        
+        
+        
+        console.log(state.favoriteCitiesList)
+    }
 
 }
 

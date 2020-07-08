@@ -15,11 +15,10 @@
       </span>
 
       <span class="city-details">
-          <!-- <img src="../../assets/favorite.svg"/> -->
           <div class="city-text">
             <span>
               <p class="city-name">{{ allCityInfos.cityName }}, {{ allCityInfos.countryCode }}</p>
-              <Star />
+              <Star v-on:toggleCity="toggleFavoriteCity"/>
             </span>
             <p>{{ todaysWeatherInfos.date }}</p>
           </div>
@@ -46,10 +45,9 @@ import { mapGetters, mapActions } from 'vuex';
       ])
     },
     methods : {
-    ...mapActions([
-        'fetchCurrentWeather',
-        'fetchNextDaysWeather'
-    ])
+      ...mapActions([
+          'toggleFavoriteCity'
+      ])
     }
   }
 </script>
