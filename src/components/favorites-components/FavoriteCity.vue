@@ -5,10 +5,9 @@
             <Star/>
         </span>
         <span>
+            <!-- <img class="flag" v-bind:src="'https://www.countryflags.io/' + allCityInfos.countryCode + '/shiny/64.png'"/> -->
             <img class="flag" src="https://www.countryflags.io/gb/shiny/64.png"/>
         </span>
-        
-
     </div>
 </template>
 

@@ -18,20 +18,22 @@
           <!-- <img src="../../assets/favorite.svg"/> -->
           <div class="city-text">
             <span>
-              <p class="city-name">{{ allCityInfos.cityName }}</p>
+              <p class="city-name">{{ allCityInfos.cityName }}, {{ allCityInfos.countryCode }}</p>
               <Star />
             </span>
             <p>{{ todaysWeatherInfos.date }}</p>
           </div>
-          <img class="country-flag" src="../../assets/fr.png"/>
+          <img class="flag" v-bind:src="'https://www.countryflags.io/' + allCityInfos.countryCode + '/shiny/64.png'"/>
       </span>
     </div>
   </div>
 </template>
 
 <script>
+
 import Star from '../Star.vue';
-  import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
+
   export default {
     name: 'CurrentWeather',
     components : {
@@ -42,6 +44,12 @@ import Star from '../Star.vue';
           'allCityInfos',
           'todaysWeatherInfos'
       ])
+    },
+    methods : {
+    ...mapActions([
+        'fetchCurrentWeather',
+        'fetchNextDaysWeather'
+    ])
     }
   }
 </script>

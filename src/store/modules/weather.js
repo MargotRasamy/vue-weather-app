@@ -1,21 +1,8 @@
 // Import axios for calls in actions
 const axios = require('axios');
-function onlyUnique(value, index, self) { 
-    return self.indexOf(value) === index;
-}
-
-var fiveDays = []
-                    
-                    function getFiveDays(list, array){
-                        
-                        for(let i = 0; i < list.length; i++){
-                            let date = convertDate(list[i].dt)
-                            array[i] = date
-                        }
-                        var datesUnique = array.filter(onlyUnique)
-                        return datesUnique
-                     
-                    }
+// function onlyUnique(value, index, self) { 
+//     return self.indexOf(value) === index;
+// }
 
 
 const state = {
@@ -24,6 +11,7 @@ const state = {
     // City looked up informations
     cityInfos : {
         cityName : "Paris",
+        countryCode : "FR",
         favoriteCity : false,
         favoriteCitiesList : []
     },
@@ -39,72 +27,7 @@ const state = {
         wind : "12",
         sunrise : "06:18",
         sunset : "17:56"
-    },
-    // 5 upcoming days weather
-    nextDaysWeather : 
-    
-    [
-        {
-            date : "06/09/2020",
-            weatherCaption : "Ciel éclairé",
-            temperature : "28",
-            temperatureMin :"15",
-            temperatureMax : "31",
-            humidity : "78",
-            pressure : "1016",
-            wind : "12",
-            sunrise : "06:18",
-            sunset : "17:56"
-        },
-        {
-            date : "06/09/2020",
-            weatherCaption : "Ciel éclairé",
-            temperature : "28",
-            temperatureMin :"15",
-            temperatureMax : "31",
-            humidity : "78",
-            pressure : "1016",
-            wind : "12",
-            sunrise : "06:18",
-            sunset : "17:56"
-        },
-        {
-            date : "06/09/2020",
-            weatherCaption : "Ciel éclairé",
-            temperature : "28",
-            temperatureMin :"15",
-            temperatureMax : "31",
-            humidity : "78",
-            pressure : "1016",
-            wind : "12",
-            sunrise : "06:18",
-            sunset : "17:56"
-        },
-        {
-            date : "06/09/2020",
-            weatherCaption : "Ciel éclairé",
-            temperature : "28",
-            temperatureMin :"15",
-            temperatureMax : "31",
-            humidity : "78",
-            pressure : "1016",
-            wind : "12",
-            sunrise : "06:18",
-            sunset : "17:56"
-        },
-        {
-            date : "06/09/2020",
-            weatherCaption : "Ciel éclairé",
-            temperature : "28",
-            temperatureMin :"15",
-            temperatureMax : "31",
-            humidity : "78",
-            pressure : "1016",
-            wind : "12",
-            sunrise : "06:18",
-            sunset : "17:56"
-        }
-    ]
+    }
 }
 
 const getters = {
@@ -159,12 +82,7 @@ const actions = {
            axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${payload}&units=metric&appid=${state.apiKey}&lang=fr`)
            .then(response => {
                 if (response.status === 200){
-                    // console.log(response.data.list)
-                    const daysList = response.data.list
-                    
-                    console.log(getFiveDays(daysList, fiveDays))
-               
-                   
+                    console.log(response.data.list)
                 }
             })
             .catch((err) => {
@@ -175,8 +93,7 @@ const actions = {
         else {
             console.log('No city searched yet')
         }
-    }
-
+    },
 
     // Favorite a city to be able to see in the favorite section
     // favoriteACity({state}, payload){
@@ -191,6 +108,7 @@ const mutations = {
     // Setting the datas in the state so we can commit the actions
     updateTodaysWeather : (state, newUpdate) => {
         state.cityInfos.cityName = newUpdate.name
+        state.cityInfos.countryCode = newUpdate.sys.country
         state.todaysWeather.weatherCaption  = capitalizeFirstLetter(newUpdate.weather[0].description)
         state.todaysWeather.temperature = newUpdate.main.temp
         state.todaysWeather.date = convertDate(newUpdate.dt)
@@ -202,15 +120,6 @@ const mutations = {
         state.todaysWeather.sunrise = convertHours(newUpdate.sys.sunrise)
         state.todaysWeather.sunset = convertHours(newUpdate.sys.sunset)
     },
-
-    // Setting the datas in the state so we can commit the actions
-    updateNextDaysWeather : (state, newUpdate) => {
-        state.nextDaysWeather.forEach((day) => {
-            day.weatherCaption  = newUpdate.weather.description
-            console.log('heyyy', newUpdate)
-        })
-    
-    }
 
     // Setting favoriteCity to true 
     // updateFavoriteCity : (state, newUpdate) => {
