@@ -20,11 +20,30 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
 import NextDaysInfos from '../components/dashboard-components/NextDaysInfos.vue'
 export default {
   name: 'NextDays',
   components : {
     NextDaysInfos
+  },
+  computed : {
+    ...mapGetters([
+        'allCityInfos'
+    ])
+  },
+  methods : {
+    ...mapActions([
+        'fetchCurrentWeather',
+        'fetchNextDaysWeather'
+    ]),
+    submit(){
+        
+        this.fetchCurrentWeather(this.queryCity)
+        this.fetchNextDaysWeather(this.queryCity)
+        // Reset input field to empty after submission
+        this.queryCity = ""
+    }
   }
   
 }

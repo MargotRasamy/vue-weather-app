@@ -120,7 +120,7 @@ export default {
     grid-column: 1 / 8;
     &> *{
       background-color: var(--colorWhite);
-      box-shadow: var(--boxShadow);
+      box-shadow: var(--boxShadowPurple);
     }
     @include small {
        grid-column: 1 / 5;
@@ -146,8 +146,13 @@ export default {
       .data-numbers{
         font-weight: bold;
         font-size: 36px;
-        
         display: inline-block;
+        @include large {
+          font-size: 32px;
+        }
+        @include medium {
+          font-size: 28px;
+        }
       }
       &>:only-child {
       display: float;

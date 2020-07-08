@@ -31,7 +31,9 @@ const state = {
         sunrise : "06:18",
         sunset : "17:56",
         iconId : "03d"
-    }
+    },
+    // Next days weather
+    nextDaysWeather : []
 }
 
 const getters = {
@@ -81,12 +83,13 @@ const actions = {
     },
 
     // Actions for the next days weather fetching via API
-    fetchNextDaysWeather({state}, payload) {
+    fetchNextDaysWeather({commit, state}, payload) {
         if(state.cityInfos.cityName) {
            axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${payload}&units=metric&appid=${state.apiKey}&lang=fr`)
            .then(response => {
                 if (response.status === 200){
                     console.log(response.data.list)
+                    commit('updateNextDaysWeather', response.data.list)
                 }
             })
             .catch((err) => {
@@ -131,12 +134,32 @@ const mutations = {
         state.todaysWeather.sunrise = convertHours(newUpdate.sys.sunrise)
         state.todaysWeather.sunset = convertHours(newUpdate.sys.sunset)
         state.todaysWeather.iconId = newUpdate.weather[0].icon
-
         if(!state.favoriteCitiesList.includes(state.cityInfos.cityName)){
             state.cityInfos.favoriteCity = false
         } else {
             state.cityInfos.favoriteCity = true
         }
+    },
+    // Next days
+    updateNextDaysWeather : (state, newUpdate) => {
+
+        state.nextDaysWeather = [...newUpdate]
+        for (let i = 0; i< newUpdate.length; i++){
+            state.nextDaysWeather[i] = {}
+            state.nextDaysWeather[i].weatherCaption = capitalizeFirstLetter(newUpdate[i].weather[0].description)
+            state.nextDaysWeather[i].temperature = newUpdate[i].main.temp
+            state.nextDaysWeather[i].date = convertDate(newUpdate[i].dt)
+            state.nextDaysWeather[i].temperatureMin  = newUpdate[i].main.temp_min
+            state.nextDaysWeather[i].temperatureMax = newUpdate[i].main.temp_max
+            state.nextDaysWeather[i].humidity = newUpdate[i].main.humidity
+            state.nextDaysWeather[i].pressure = newUpdate[i].main.pressure
+            state.nextDaysWeather[i].wind = newUpdate[i].wind.speed
+            state.nextDaysWeather[i].iconId = newUpdate[i].weather[0].icon
+        
+        }
+       
+        console.log('Your next days', state.nextDaysWeather)
+
     },
 
     // Setting favoriteCity to true 
@@ -145,13 +168,6 @@ const mutations = {
         
          
         // If the city was favorited (true), we add to the list
-
-       
-        
-        
-        
-        
-        
         console.log(state.favoriteCitiesList)
     }
 

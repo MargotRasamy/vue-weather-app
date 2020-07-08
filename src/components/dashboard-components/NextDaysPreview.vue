@@ -47,7 +47,7 @@ export default {
     justify-content: center;
     text-align: center;
     width: fit-content;
-    padding:0 var(--spaceS);
+    padding: var(--spaceXS) var(--spaceS);
     height:fit-content;
     box-shadow: var(--boxShadow);
 

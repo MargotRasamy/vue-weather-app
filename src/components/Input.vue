@@ -1,6 +1,6 @@
 <template>
    <form class="input">
-                <input v-model="queryCity"  type="text" id="search-input" placeholder="Rechercher..."/>
+                <input v-model="queryCity"  type="text" id="search-input" placeholder="Rechercher votre ville (exemple: Hong Kong...)"/>
                 <button v-on:click.prevent="submit" alt="submit"/>
     </form>
   
@@ -55,6 +55,7 @@ export default {
         height: 40px;
         width: 100%;
         padding-left: var(--spaceM);
+        padding-right: var(--spaceL);
         font-size: var(--fontSizeMain);
        
     }
