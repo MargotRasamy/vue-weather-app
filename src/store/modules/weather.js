@@ -1,9 +1,5 @@
 // Import axios for calls in actions
 const axios = require('axios');
-// function onlyUnique(value, index, self) { 
-//     return self.indexOf(value) === index;
-// }
-
 
 const state = {
     // Api key from openweathermap.org

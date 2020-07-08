@@ -10,9 +10,6 @@ export default {
               "February",
               "March",
               "April",
-              "May",
-              "June",
-              "July"
             ],
             datasets: [
                 {
@@ -20,7 +17,7 @@ export default {
                 borderColor: "#f39e00",
                 pointBackgroundColor: "#f39e00",
                 pointBorderColor: "#f39e00",
-                borderWidth: 1,
+                borderWidth: 3,
                 backgroundColor: "#f39e005f",
                 data: [60, 55, 32, 10, 2, 12, 53]
               },
@@ -28,7 +25,7 @@ export default {
                 label: "Humidité",
                 borderColor: "#706bff",
                 pointBackgroundColor: "#706bff",
-                borderWidth: 1,
+                borderWidth: 3,
                 pointBorderColor: "#706bff",
                 backgroundColor: "#706bff6a",
                 data: [40, 39, 10, 40, 39, 80, 40]

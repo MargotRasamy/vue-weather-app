@@ -51,6 +51,7 @@ export default {
   
 }
 
+
 .button {
     display: inline-block;
     border-radius: var(--borderRadiusSmall);
@@ -74,7 +75,9 @@ export default {
         color: var(--colorWhite);
     }
 }
-
+.container > * {
+  margin: auto;
+}
 .next-preview {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

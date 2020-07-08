@@ -1,10 +1,10 @@
 <template>
   <div class="wind">
-    <span>
-          <p class="data-title">Vent</p>
-          <p class="data-numbers">{{ todaysWeatherInfos.wind }} m/s</p>
-        </span>
-    <img src="../../assets/weather-icons/windy.svg"/>
+ 
+    <p class="data-title">Vent</p>
+    <p class="data-numbers">{{ todaysWeatherInfos.wind }} m/s</p>
+  <img src="../../assets/weather-icons/windy.svg"/>
+   
     
   </div>
 </template>

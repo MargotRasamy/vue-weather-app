@@ -35,20 +35,18 @@ export default {
 </script>
 
 <style scoped lang="scss"> 
-    .sun {
-      display: flex;
-      flex-direction: column;
-    }
+ 
     .sun > span {
-      display: flex;
-      flex-direction: column;
+
       margin: auto;
       
     }
     .data-sun{
       display: flex;
-      width:fit-content;
-      padding: var(--spaceS) 0;
+    margin-left: var(--spaceL);
+    padding: var(--spaceS) 0;
+    
+     
       p{
         text-align: left;
         margin-left: var(--spaceS);

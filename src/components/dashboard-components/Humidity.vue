@@ -1,9 +1,9 @@
 <template>
   <div class="humidity">
-    <span>
+    
         <p class="data-title">Humidité</p>
         <p class="data-numbers">{{ todaysWeatherInfos.humidity }} %</p>
-    </span>     
+     
     <img src="../../assets/weather-icons/humidity.svg"/>
     
   </div>

@@ -101,7 +101,11 @@ export default {
     border-radius: var(--borderRadiusLarge);
     &>*{
       margin: var(--spaceS) var(--spaceM);
+      @include small {
+        margin: var(--spaceM);
+      }
     }
+
   }
   .data-title{  
     text-align: left;
@@ -143,10 +147,14 @@ export default {
       background-color: var(--colorPurple);
       box-shadow: var(--boxShadowPurple);
       color: var(--colorWhite);
+      &>:only-child{
+
+        display: float;
+      }
       .data-numbers{
         font-weight: bold;
         font-size: 36px;
-        display: inline-block;
+        display: block;
         @include large {
           font-size: 32px;
         }
@@ -154,12 +162,11 @@ export default {
           font-size: 28px;
         }
       }
-      &>:only-child {
-      display: float;
-      img {
-            float: right;
+      & img {
+        float: right;
       }
-      }
+  
+      
     }
 
   // Yellow box
