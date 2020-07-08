@@ -83,11 +83,15 @@ import { mapGetters, mapActions } from 'vuex';
       height:120px;
     }
     & p:first-child{
-      font-size: 50px;
-      font-weight: bold;  
+      font-size: 42px;
+      font-weight: bold; 
+      @include medium {
+         font-size: 38px;
+      } 
     }
     & p:nth-child(2){
       font-weight: bold;
+      
     }
     
     @include small{
@@ -96,15 +100,20 @@ import { mapGetters, mapActions } from 'vuex';
       text-align: center;
     }
   }
-
+  .temperature-text{
+    line-height: 1.6;
+  }
   .city-details{
     text-align: right;
     line-height: 1.5;
     & .city-name {
-      font-size: 36px;
+      font-size: 26px;
       font-weight: bold;
       display: inline-block;
       margin-right: var(--spaceS);
+      @include medium {
+         font-size: 20px;
+      }
     }
     & .favorite{
       height: var(--iconSize);
@@ -113,7 +122,7 @@ import { mapGetters, mapActions } from 'vuex';
     }
     & .country-flag{
      margin: var(--spaceM) 0;
-      width: 60px;
+      
     }
     @include small {
       display: flex;

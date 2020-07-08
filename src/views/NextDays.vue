@@ -43,6 +43,9 @@ export default {
   @include small{
     grid-template-columns: repeat(2,1fr);
   }
+  &>.next-days-infos{
+    margin:0;
+  }
 }
 
 </style>

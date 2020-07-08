@@ -32,11 +32,16 @@ export default {
         border: 5px solid var(--colorPurpleVeryLight);
         box-shadow: var(--boxShadowPurple);
         border-radius: 20px;
-      
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
         .temp {
           font-weight: bold;
           color: var(--colorYellow);
           font-size: 21px;
+          
         }
         .date {
        
