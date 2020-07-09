@@ -48,7 +48,7 @@ const getters = {
 let moment = require('moment');
 // Method to convert hours
 function convertHours (unixTimeStamp) {
-    return moment(unixTimeStamp * 1000).format('h:mm')
+    return moment(unixTimeStamp * 1000).format('HH:mm')
 }
 // Actual time
 // moment.locale();

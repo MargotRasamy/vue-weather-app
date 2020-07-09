@@ -18,9 +18,9 @@ export default {
                   // les pas
                   ticks: {
                       beginAtZero: false,
-                      max: 45,
+                      max: 40,
                       min: 10,
-                      stepSize: 2
+                      stepSize: 1
                   }
               }],
               //l'axe x
@@ -45,7 +45,7 @@ export default {
           legend: {
               position: 'bottom',
               align: 'center'
-          }
+          },
       }
     }
   },
