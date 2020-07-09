@@ -1,3 +1,5 @@
+
+
 // Import axios for calls in actions
 const axios = require('axios');
 
@@ -13,6 +15,7 @@ const state = {
     
     // Favorites
     favoriteCitiesList : [
+
     ],
     // Current weather
     todaysWeather : {
@@ -41,7 +44,8 @@ const getters = {
     allCityInfos : (state) => {return state.cityInfos},
     todaysWeatherInfos : (state) => {return state.todaysWeather},
     nextDaysWeatherInfos : (state) => {return state.nextDaysWeather},
-    loadingAPI : (state) => {return state.loading}
+    loadingAPI : (state) => {return state.loading},
+    favoriteCitiesList : (state) => {return state.favoriteCitiesList}
 }
 // Time moment.js
 
@@ -100,21 +104,28 @@ const actions = {
         
   
        
-}
+
 
    
     // Favorite a city to be able to see in the favorite section
     // Payload will be cityinfos
-    // ,toggleFavoriteCity({commit, state}){ console.log('hey')
-    //     if(!state.cityInfos.favoriteCity) {
-    //         commit('updateFavoriteCitiesList', true)
-           
-    //     }
-    //     else {
-    //         commit('updateFavoriteCitiesList', false)
-    //     }
-    // }
-    // }
+    ,toggleFavoriteCity({commit, state}){ 
+
+        if(!state.favoriteCitiesList.some((e) => e.cityName === state.cityInfos.cityName )){
+            state.cityInfos.favoriteCity = false
+        } else {
+            state.cityInfos.favoriteCity = true
+        }
+        
+        if(!state.cityInfos.favoriteCity) {
+            commit('updateFavoriteCitiesList', true)
+        
+        }
+        else {
+            commit('updateFavoriteCitiesList', false)
+        }
+    }
+    }
 
 
 
@@ -135,11 +146,9 @@ const mutations = {
         state.todaysWeather.sunrise = convertHours(newUpdate.sys.sunrise)
         state.todaysWeather.sunset = convertHours(newUpdate.sys.sunset)
         state.todaysWeather.iconId = newUpdate.weather[0].icon
-        if(!state.favoriteCitiesList.includes(state.cityInfos.cityName)){
-            state.cityInfos.favoriteCity = false
-        } else {
-            state.cityInfos.favoriteCity = true
-        }
+
+        
+        
     },
     // Next days
     updateNextDaysWeather : (state, newUpdate) => {
@@ -168,16 +177,43 @@ const mutations = {
     // When all API call repsonses are fully loaded, commit the mutation of the state "loaded"
     loadingAPICalls : (state, newUpdate) => {
         state.loaded = newUpdate
-    }
+    },
 
     // Setting favoriteCity to true 
-    // updateFavoriteCitiesList : (state, newUpdate) => {
-    //     state.cityInfos.favoriteCity = newUpdate;
+    updateFavoriteCitiesList : (state, newUpdate) => {
         
-         
-    //     // If the city was favorited (true), we add to the list
-    //     console.log(state.favoriteCitiesList)
-    // }
+      
+  
+        // If the city was favorited (true), we add to the list
+        
+       if (newUpdate === true) {
+            var cityFavorited = {}
+            cityFavorited.cityName = state.cityInfos.cityName
+            cityFavorited.favoriteCity = state.cityInfos.favoriteCity
+            cityFavorited.countryCode = state.cityInfos.countryCode
+            state.favoriteCitiesList.push(cityFavorited)
+            state.cityInfos.favoriteCity = newUpdate
+            
+             
+        }
+        else if (state.favoriteCitiesList.some(e => e.cityName === state.cityInfos.cityName)){
+            var cityUnfavorited = {}
+            cityUnfavorited.cityName = state.cityInfos.cityName
+            cityUnfavorited.favoriteCity = state.cityInfos.favoriteCity
+            cityUnfavorited.countryCode = state.cityInfos.countryCode
+            
+            // state.favoriteCitiesList.forEach((element) => { element === state.cityInfos.cityName ? delete element : delete element });
+            state.favoriteCitiesList = state.favoriteCitiesList.filter( (element) =>
+                element.cityName !== state.cityInfos.cityName
+            )
+            state.cityInfos.favoriteCity = newUpdate
+                    console.log('youve already liked, so now dislike')    
+        }
+
+    
+
+        console.log(state.favoriteCitiesList)
+    }
 
 }
 

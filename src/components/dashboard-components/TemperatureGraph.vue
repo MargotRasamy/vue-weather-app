@@ -31,7 +31,6 @@ export default {
         (forecast) => {
           temperaturesDatas.push(forecast.temperature)
           hoursDatas.push(forecast.time)
-          console.log(forecast.temperature)
         }
       )
       
