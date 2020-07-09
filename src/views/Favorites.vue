@@ -1,30 +1,28 @@
 <template>
   <div class="favorites">
-    <FavoriteCity/>
-    <FavoriteCity/>
-    <FavoriteCity/>
-    <FavoriteCity/>
-    <FavoriteCity/>
-    <FavoriteCity/>
-    <FavoriteCity/>
-    <FavoriteCity/>
-    <FavoriteCity/>
-    
-
+    <div class="infos-container" v-for="favoriteCity in favoriteCitiesList" v-bind:key="favoriteCity">
+          <FavoriteCity
+          :favCityName="favoriteCity.cityName"
+          :favCountryCode="favoriteCity.countryCode"/>
+    </div>
 
    
   </div>
 </template>
 
 <script>
-
+import { mapGetters } from 'vuex';
 import FavoriteCity from '../components/favorites-components/FavoriteCity.vue';
 
 export default {
   name: 'Favorites',
   components : {
     FavoriteCity
-  }
+  },
+  computed : {
+    ...mapGetters([
+        'favoriteCitiesList'
+  ])}
 }
 
 </script>

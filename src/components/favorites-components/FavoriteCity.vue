@@ -1,9 +1,9 @@
 <template>
     <div class="favorite-city">
             <Star class="favorite"/>
-            <img class="flag" src="https://www.countryflags.io/gb/shiny/64.png"/>
-            <!-- <img class="flag" v-bind:src="'https://www.countryflags.io/' + allCityInfos.countryCode + '/shiny/64.png'"/> -->
-             <p class="favorite-city--name">London, GB</p>
+          
+            <img class="flag" v-bind:src="'https://www.countryflags.io/' + favCountryCode + '/shiny/64.png'"/>
+             <p class="favorite-city--name">{{ favCityName }}</p>
         
     </div>
 </template>
@@ -15,7 +15,8 @@ export default {
     name: 'FavoriteCity',
     components : {
         Star
-    }
+    },
+    props : ['favCityName', 'favCountryCode' ]
 }
 </script>
 
