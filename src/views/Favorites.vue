@@ -1,9 +1,10 @@
 <template>
   <div class="favorites">
-    <div class="infos-container" v-for="favoriteCity in favoriteCitiesList" v-bind:key="favoriteCity">
+    <div class="infos-container" v-for="favoritedCity in favoriteCitiesList" v-bind:key="favoritedCity">
           <FavoriteCity
-          :favCityName="favoriteCity.cityName"
-          :favCountryCode="favoriteCity.countryCode"/>
+          :isFavorited="true"
+          :favCityName="favoritedCity.cityName"
+          :favCountryCode="favoritedCity.countryCode"/>
     </div>
 
    
@@ -39,5 +40,6 @@ export default {
     grid-template-columns: repeat(2,1fr);
   }
 }
+
 
 </style>

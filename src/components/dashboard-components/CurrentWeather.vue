@@ -19,7 +19,7 @@
           <div class="city-text">
             <span>
               <p class="city-name">{{ allCityInfos.cityName }}, {{ allCityInfos.countryCode }}</p>
-              <Star v-on:toggleCity="toggleFavoriteCity"/>
+              <Star :colorChange="allCityInfos.favoriteCity" v-on:toggleCity="toggleFavoriteCity"/>
             </span>
             <p>{{ todaysWeatherInfos.date }}</p>
           </div>

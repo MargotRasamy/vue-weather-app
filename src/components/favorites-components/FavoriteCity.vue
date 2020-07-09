@@ -1,6 +1,6 @@
 <template>
     <div class="favorite-city">
-            <Star class="favorite"/>
+            <Star class="favorite" :colorChange="isFavorited" />
           
             <img class="flag" v-bind:src="'https://www.countryflags.io/' + favCountryCode + '/shiny/64.png'"/>
              <p class="favorite-city--name">{{ favCityName }}</p>
@@ -16,7 +16,7 @@ export default {
     components : {
         Star
     },
-    props : ['favCityName', 'favCountryCode' ]
+    props : ['favCityName', 'favCountryCode', 'isFavorited' ]
 }
 </script>
 

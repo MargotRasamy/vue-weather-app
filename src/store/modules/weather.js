@@ -108,7 +108,7 @@ const actions = {
 
    
     // Favorite a city to be able to see in the favorite section
-    // Payload will be cityinfos
+
     ,toggleFavoriteCity({commit, state}){ 
 
         if(!state.favoriteCitiesList.some((e) => e.cityName === state.cityInfos.cityName )){
@@ -125,7 +125,10 @@ const actions = {
             commit('updateFavoriteCitiesList', false)
         }
     }
-    }
+
+
+
+}
 
 
 
@@ -146,7 +149,12 @@ const mutations = {
         state.todaysWeather.sunrise = convertHours(newUpdate.sys.sunrise)
         state.todaysWeather.sunset = convertHours(newUpdate.sys.sunset)
         state.todaysWeather.iconId = newUpdate.weather[0].icon
-
+        
+        if(!state.favoriteCitiesList.some((e) => e.cityName === state.cityInfos.cityName )){
+            state.cityInfos.favoriteCity = false
+        } else {
+            state.cityInfos.favoriteCity = true
+        }
         
         
     },
