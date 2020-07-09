@@ -7,15 +7,15 @@
       </router-link>
     </span>
 
-    <h2 v-if="loading">Chargement...</h2>
+    <h2 v-if="!nextDaysWeatherInfos[0].temperature">Chargement...</h2>
 
-    <span class="next-preview" v-if="!loading">
+    <span class="next-preview" v-if="nextDaysWeatherInfos[0].temperature">
       <div class="container" v-for="i in 4" v-bind:key="i">
         <NextDaysInfos 
-                :icon="nextDaysWeatherInfos[i].iconId"
-                :date="nextDaysWeatherInfos[i].date"
-                :time="nextDaysWeatherInfos[i].time"
-                :temperature="nextDaysWeatherInfos[i].temperature"/>
+          :date="nextDaysWeatherInfos[i].date"
+          :time="nextDaysWeatherInfos[i].time"
+          :temperature="nextDaysWeatherInfos[i].temperature"
+          :icon="nextDaysWeatherInfos[i].iconId"/>
       </div>
       
     </span>

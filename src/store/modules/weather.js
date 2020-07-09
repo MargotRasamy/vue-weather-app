@@ -41,7 +41,7 @@ const getters = {
     allCityInfos : (state) => {return state.cityInfos},
     todaysWeatherInfos : (state) => {return state.todaysWeather},
     nextDaysWeatherInfos : (state) => {return state.nextDaysWeather},
-    loadingAPI : (state) => {return state.loaded}
+    loadingAPI : (state) => {return state.loading}
 }
 // Time moment.js
 
@@ -64,6 +64,7 @@ function capitalizeFirstLetter(string) {
 const actions = {
     // Actions for weather fetching via API
     fetchCurrentWeather({commit, state}, payload) {
+        this.state.loaded = true
         
             axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${payload}&units=metric&appid=${state.apiKey}&lang=fr`)
            .then(response => {
@@ -157,6 +158,8 @@ const mutations = {
             state.nextDaysWeather[i].iconId = newUpdate[i].weather[0].icon
             state.nextDaysWeather[i].id = newUpdate[i].dt
         }
+
+
        
         console.log('Your next days', state.nextDaysWeather)
 

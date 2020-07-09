@@ -2,7 +2,8 @@
   <div class="current-weather">
     <p class="data-title">Situation actuelle</p>
 
-    <div class="current-weather--details">
+    <h2 v-if="!allCityInfos.cityName">Chargement...</h2>
+    <div class="current-weather--details" v-if="allCityInfos.cityName">
       <span class="temperature-details">
           <i class="weather-icons wi" :class="weatherIcons(todaysWeatherInfos.iconId)"></i>
           <div class="temperature-text">
@@ -36,7 +37,8 @@ import { mapGetters, mapActions } from 'vuex';
   export default {
     name: 'CurrentWeather',
     data: () => ({
-      weatherIcons
+      weatherIcons,
+      loading : true
     }),
     components : {
       Star
@@ -44,7 +46,8 @@ import { mapGetters, mapActions } from 'vuex';
     computed : {
       ...mapGetters([
           'allCityInfos',
-          'todaysWeatherInfos'
+          'todaysWeatherInfos',
+          'loadingAPI'
       ])
     },
     methods : {

@@ -1,8 +1,8 @@
 <template>
   <div class="nextdays">
     <H2 v-if="allCityInfos.cityName">La météo des prochains jours à {{ allCityInfos.cityName }}</H2>
-    <H3 v-if="loadingAPI">Chargement...</H3>
-    <span class="meteo-container" v-if="!loadingAPI">
+    <H3 v-if="!allCityInfos.cityName">Chargement...</H3>
+    <span class="meteo-container" v-if="allCityInfos.cityName">
       <div class="infos-container" v-for="nextDay in nextDaysWeatherInfos" v-bind:key="nextDay.id">
           <NextDaysInfos 
           :temperature="nextDay.temperature"
