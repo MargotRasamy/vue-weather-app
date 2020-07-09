@@ -1,5 +1,5 @@
 <template>
-  <div class="next-days-infos" >
+  <div class="next-days-infos">
     <p>{{ caption }}</p>
     <p class="temp">{{ temperature }} °</p>
     <i class="weather-icons wi" :class="weatherIcons(icon)"></i>

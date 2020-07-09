@@ -1,8 +1,8 @@
 <template>
   <div class="nextdays">
     <H2 v-if="allCityInfos.cityName">La météo des prochains jours à {{ allCityInfos.cityName }}</H2>
-
-    <span class="meteo-container" v-if="allCityInfos.cityName">
+    <H3 v-if="loadingAPI">Chargement...</H3>
+    <span class="meteo-container" v-if="!loadingAPI">
       <div class="infos-container" v-for="nextDay in nextDaysWeatherInfos" v-bind:key="nextDay.id">
           <NextDaysInfos 
           :temperature="nextDay.temperature"
@@ -28,7 +28,8 @@ export default {
   computed : {
     ...mapGetters([
         'allCityInfos',
-        'nextDaysWeatherInfos'
+        'nextDaysWeatherInfos',
+        'loadingAPI'
     ])
   }
   

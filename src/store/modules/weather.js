@@ -30,14 +30,18 @@ const state = {
     },
     // Next days weather
     nextDaysWeather : [
-    ]
+    ],
+    // API call responses fully loaded
+    // If loading = true, do not render the components yet
+    loading : true
 }
 
 const getters = {
     apiKey : (state) => {return state.apiKey},
     allCityInfos : (state) => {return state.cityInfos},
     todaysWeatherInfos : (state) => {return state.todaysWeather},
-    nextDaysWeatherInfos : (state) => {return state.nextDaysWeather}
+    nextDaysWeatherInfos : (state) => {return state.nextDaysWeather},
+    loadingAPI : (state) => {return state.loaded}
 }
 // Time moment.js
 
@@ -58,7 +62,6 @@ function capitalizeFirstLetter(string) {
 }
 
 const actions = {
-
     // Actions for weather fetching via API
     fetchCurrentWeather({commit, state}, payload) {
         
@@ -86,25 +89,31 @@ const actions = {
                 }
             })
             .catch((err) => {
-                console.error('The city requested is not correct', err);
-            });   
+                console.error('The city requested is not correct', err)
+            })
+            .finally( () => {
+                // Avoid the component to be rendered before API call response
+                commit('loadingAPICalls', false)
+            })
+    }
         
   
        
-    },
+}
 
+   
     // Favorite a city to be able to see in the favorite section
     // Payload will be cityinfos
-    toggleFavoriteCity({commit, state}){ console.log('hey')
-        if(!state.cityInfos.favoriteCity) {
-            commit('updateFavoriteCitiesList', true)
+    // ,toggleFavoriteCity({commit, state}){ console.log('hey')
+    //     if(!state.cityInfos.favoriteCity) {
+    //         commit('updateFavoriteCitiesList', true)
            
-        }
-        else {
-            commit('updateFavoriteCitiesList', false)
-        }
-    }
-}
+    //     }
+    //     else {
+    //         commit('updateFavoriteCitiesList', false)
+    //     }
+    // }
+    // }
 
 
 
@@ -141,28 +150,31 @@ const mutations = {
             state.nextDaysWeather[i].temperature = newUpdate[i].main.temp
             state.nextDaysWeather[i].date = convertDate(newUpdate[i].dt)
             state.nextDaysWeather[i].time = convertHours(newUpdate[i].dt)
-            state.nextDaysWeather[i].temperatureMin  = newUpdate[i].main.temp_min
-            state.nextDaysWeather[i].temperatureMax = newUpdate[i].main.temp_max
+            state.nextDaysWeather[i].temperatureFelt = newUpdate[i].main.feels_like
             state.nextDaysWeather[i].humidity = newUpdate[i].main.humidity
             state.nextDaysWeather[i].pressure = newUpdate[i].main.pressure
             state.nextDaysWeather[i].wind = newUpdate[i].wind.speed
             state.nextDaysWeather[i].iconId = newUpdate[i].weather[0].icon
             state.nextDaysWeather[i].id = newUpdate[i].dt
-        
         }
        
         console.log('Your next days', state.nextDaysWeather)
 
     },
 
+    // When all API call repsonses are fully loaded, commit the mutation of the state "loaded"
+    loadingAPICalls : (state, newUpdate) => {
+        state.loaded = newUpdate
+    }
+
     // Setting favoriteCity to true 
-    updateFavoriteCitiesList : (state, newUpdate) => {
-        state.cityInfos.favoriteCity = newUpdate;
+    // updateFavoriteCitiesList : (state, newUpdate) => {
+    //     state.cityInfos.favoriteCity = newUpdate;
         
          
-        // If the city was favorited (true), we add to the list
-        console.log(state.favoriteCitiesList)
-    }
+    //     // If the city was favorited (true), we add to the list
+    //     console.log(state.favoriteCitiesList)
+    // }
 
 }
 

@@ -1,14 +1,15 @@
 <template>
-  <div class="next-days-preview">
+  <div class="next-days-preview" >
     <span>
       <p class="data-title">Météo des prochaines heures</p>
       <router-link class="button button--purple" to="/nextdays">
         Voir plus
       </router-link>
     </span>
-   
 
-    <span class="next-preview" >
+    <h2 v-if="loading">Chargement...</h2>
+
+    <span class="next-preview" v-if="!loading">
       <div class="container" v-for="i in 4" v-bind:key="i">
         <NextDaysInfos 
                 :icon="nextDaysWeatherInfos[i].iconId"
@@ -34,7 +35,8 @@ export default {
   computed : {
     ...mapGetters([
         'allCityInfos',
-        'nextDaysWeatherInfos'
+        'nextDaysWeatherInfos',
+        'loadingAPI'
     ])
   }
   
