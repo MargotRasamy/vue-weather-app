@@ -1,9 +1,13 @@
 <template>
   <div class="wind">
  
-    <p class="data-title">Vent</p>
-    <p class="data-numbers">{{ todaysWeatherInfos.wind }} m/s</p>
-  <img src="../../assets/weather-icons/windy.svg"/>
+    <p class="data-title">Vent</p> 
+    <div class="data-container">
+      <p class="data-numbers">{{ todaysWeatherInfos.wind }} m/s</p>
+      <img src="../../assets/weather-icons/windy.svg"/>
+    </div>
+    
+
    
     
   </div>

@@ -2,9 +2,10 @@
   <div class="pressure">
 
     <p class="data-title">Pression atmosphérique</p>
-    <p class="data-numbers">{{ todaysWeatherInfos.pressure }} hPa</p>
-   
-    <img src="../../assets/weather-icons/tide.svg"/>
+    <div class="data-container">
+      <p class="data-numbers">{{ todaysWeatherInfos.pressure }} hPa</p>
+      <img src="../../assets/weather-icons/tide.svg"/>
+    </div>
     
   </div>
 </template>

@@ -100,17 +100,15 @@ export default {
   & .dashboard-data{
     border-radius: var(--borderRadiusLarge);
     &>*{
-      margin: var(--spaceS) var(--spaceM);
-      @include small {
-        margin: var(--spaceM);
-      }
+      margin: var(--spaceM);
+      
     }
 
   }
   .data-title{  
     text-align: left;
     align-self: flex-start;
-    padding-bottom: var(--spaceM);
+    padding-bottom: var(--spaceS);
   }
   
   .data-hours{
@@ -149,7 +147,12 @@ export default {
       color: var(--colorWhite);
       &>:only-child{
 
-        display: float;
+        & .data-container {
+          display: flex;
+          justify-content: space-between;
+          margin: var(--spaceM);
+        
+        }
       }
       .data-numbers{
         font-weight: bold;
@@ -162,9 +165,7 @@ export default {
           font-size: 28px;
         }
       }
-      & img {
-        float: right;
-      }
+     
   
       
     }

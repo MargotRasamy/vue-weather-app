@@ -1,7 +1,7 @@
 <template>
   <div class="sun">
      <p class="data-title">Lever et coucher du soleil</p>
-    <span>         
+      <div class="data-sun-container">
         <div class="data-sun">
             <img src="../../assets/weather-icons/sunrise-1.svg"/>
             <span>
@@ -17,7 +17,9 @@
             <p class="data-hours">{{ todaysWeatherInfos.sunset }}</p>
             </span>
         </div>
-    </span>
+      </div>
+        
+   
   </div>
 </template>
 
@@ -35,11 +37,13 @@ export default {
 </script>
 
 <style scoped lang="scss"> 
- 
-    .sun > span {
+  .sun {
+  
+  }
+    .sun > .data-sun-container {
 
       margin: auto;
-      
+     
     }
     .data-sun{
       display: flex;

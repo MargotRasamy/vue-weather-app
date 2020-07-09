@@ -1,7 +1,7 @@
 <template>
   <div class="temperature-graph">
     <p class="data-title">Courbe de températures des 5 derniers jours</p>
-    <p>No graph yet</p>
+
     <span class="chart-container"><line-chart class="chart"></line-chart></span>
     
     

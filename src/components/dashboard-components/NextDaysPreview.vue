@@ -48,7 +48,6 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  
 }
 
 
@@ -63,6 +62,7 @@ export default {
     padding: var(--spaceXS) var(--spaceS);
     height:fit-content;
     box-shadow: var(--boxShadow);
+    font-size: 14px;
 
 }
 
