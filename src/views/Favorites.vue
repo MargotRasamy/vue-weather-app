@@ -1,18 +1,20 @@
 <template>
-  <div class="favorites">
-    <div class="infos-container" v-for="favoritedCity in favoriteCitiesList" v-bind:key="favoritedCity">
-          <FavoriteCity
+  <div >
+    <h2 v-if="favoriteCitiesList.length === 0">Pas encore de villes en favoris pour le moment.</h2>
+    <span class="favorites" >
+      <div class="favorites-container" v-for="favoritedCity in favoriteCitiesList" v-bind:key="favoritedCity.cityName">
+          <FavoriteCity 
+          v-on:click.native="fetchCity(favoritedCity.cityName)"
           :isFavorited="true"
           :favCityName="favoritedCity.cityName"
           :favCountryCode="favoritedCity.countryCode"/>
     </div>
-
-   
+    </span>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import FavoriteCity from '../components/favorites-components/FavoriteCity.vue';
 
 export default {
@@ -23,7 +25,17 @@ export default {
   computed : {
     ...mapGetters([
         'favoriteCitiesList'
-  ])}
+  ])},
+  methods : {
+    ...mapActions([
+        'fetchCurrentWeather',
+        'fetchNextDaysWeather'
+    ]),
+    fetchCity(cityToFetch){   
+        this.fetchCurrentWeather(cityToFetch)
+        this.fetchNextDaysWeather(cityToFetch)
+    }
+  }
 }
 
 </script>
@@ -40,6 +52,8 @@ export default {
     grid-template-columns: repeat(2,1fr);
   }
 }
+
+
 
 
 </style>
