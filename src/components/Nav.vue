@@ -3,14 +3,14 @@
     <nav ref="navMenu" >
         <span></span>
         <ul class="nav">
-            <li v-on:click="activateNavLink"  class="nav-item">
-            <router-link ref="navLink1" class="nav-link nav-active" to="/">Météo du jour</router-link>   
+            <li   class="nav-item">
+            <router-link ref="navLink1" :class="[!currentRoute.includes('nextdays') && !currentRoute.includes('favorites') ? 'nav-active' : '' ]" class="nav-link" to="/">Météo du jour</router-link>   
             </li>
-            <li v-on:click="activateNavLink" class="nav-item">
-            <router-link ref="navLink2" class="nav-link" to="/nextdays">Les prochains jours</router-link>
+            <li  class="nav-item">
+            <router-link ref="navLink2" :class="[currentRoute.includes('nextdays') ? 'nav-active' : '' ]" class="nav-link" to="/nextdays">Les prochains jours</router-link>
             </li>
-            <li v-on:click="activateNavLink" class="nav-item">
-            <router-link ref="navLink3" class="nav-link" to="/favorites">Mes villes favorites</router-link>
+            <li  class="nav-item">
+            <router-link ref="navLink3" :class="[currentRoute.includes('favorites') ? 'nav-active' : '' ]" class="nav-link" to="/favorites">Mes villes favorites</router-link>
             </li>
         </ul>
      </nav>   
@@ -21,22 +21,9 @@
 <script>
 export default {
   name: 'Nav',
-  methods: {
-    activateNavLink : function (event) {
-        const navLinkClassList = event.target
-        const navLink1 = this.$refs.navLink1.$el
-        const navLink2 = this.$refs.navLink2.$el
-        const navLink3 = this.$refs.navLink3.$el
-        const navLinks = [navLink1, navLink2, navLink3]
-        for (let i = 0; i < navLinks.length ; i++) {
-            if (navLinks[i].classList.contains('nav-active')){
-                navLinks[i].classList.toggle('nav-active')
-            }
-            if (navLinks[i] === navLinkClassList) {
-                navLinks[i].classList.add('nav-active')
-            }
-        }    
-    }
+  computed : {
+      currentRoute(){ return this.$route.path
+      }
   }
 }
 </script>
