@@ -1,52 +1,3 @@
-
-
-// Import axios for calls in actions
-const axios = require('axios');
-
-const state = {
-    // Api key from openweathermap.org
-    apiKey : "5931f623ca1fae44f02bc1bf35cb9c7a",
-    // City looked up informations
-    cityInfos : {
-        cityName : "",
-        countryCode : "",
-        favoriteCity : false
-    },
-    
-    // Favorites
-    favoriteCitiesList : [
-
-    ],
-    // Current weather
-    todaysWeather : {
-        date : "",
-        weatherCaption : "",
-        temperature : "",
-        temperatureMin :"",
-        temperatureMax : "",
-        humidity : "",
-        pressure : "",
-        wind : "",
-        sunrise : "",
-        sunset : "",
-        iconId : ""
-    },
-    // Next days weather
-    nextDaysWeather : [
-    ],
-    // API call responses fully loaded
-    // If loading = true, do not render the components yet
-    loading : true
-}
-
-const getters = {
-    apiKey : (state) => {return state.apiKey},
-    allCityInfos : (state) => {return state.cityInfos},
-    todaysWeatherInfos : (state) => {return state.todaysWeather},
-    nextDaysWeatherInfos : (state) => {return state.nextDaysWeather},
-    loadingAPI : (state) => {return state.loading},
-    favoriteCitiesList : (state) => {return state.favoriteCitiesList}
-}
 // Time moment.js
 
 let moment = require('moment');
@@ -55,8 +6,6 @@ function convertHours (unixTimeStamp) {
     return moment(unixTimeStamp * 1000).format('HH:mm')
 }
 // Actual time
-// moment.locale();
-// const nowTime = moment().format('LTS')
 function convertDate(unixTimeStamp) {
     return moment(unixTimeStamp * 1000).format('DD/MM/YYYY')
 }
@@ -64,73 +13,6 @@ function convertDate(unixTimeStamp) {
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
-
-const actions = {
-    // Actions for weather fetching via API
-    fetchCurrentWeather({commit, state}, payload) {
-        this.state.loaded = true
-        
-            axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${payload}&units=metric&appid=${state.apiKey}&lang=fr`)
-           .then(response => {
-                if (response.status === 200){
-                   console.log(response.data) 
-                   commit('updateTodaysWeather', response.data)
-                }
-            })
-            .catch((err) => {
-                console.error('The city requested is not correct', err);
-            });   
-        
-    },
-
-    // Actions for the next days weather fetching via API
-    fetchNextDaysWeather({commit, state}, payload) {
-      
-           axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${payload}&units=metric&appid=${state.apiKey}&lang=fr`)
-           .then(response => {
-                if (response.status === 200){
-                    console.log(response.data.list)
-                    commit('updateNextDaysWeather', response.data.list)
-                }
-            })
-            .catch((err) => {
-                console.error('The city requested is not correct', err)
-            })
-            .finally( () => {
-                // Avoid the component to be rendered before API call response
-                commit('loadingAPICalls', false)
-            })
-    }
-        
-  
-       
-
-
-   
-    // Favorite a city to be able to see in the favorite section
-
-    ,toggleFavoriteCity({commit, state}){ 
-
-        if(!state.favoriteCitiesList.some((e) => e.cityName === state.cityInfos.cityName )){
-            state.cityInfos.favoriteCity = false
-        } else {
-            state.cityInfos.favoriteCity = true
-        }
-        
-        if(!state.cityInfos.favoriteCity) {
-            commit('updateFavoriteCitiesList', true)
-        
-        }
-        else {
-            commit('updateFavoriteCitiesList', false)
-        }
-    }
-
-
-
-}
-
-
 
 const mutations = {
 
@@ -176,10 +58,6 @@ const mutations = {
             state.nextDaysWeather[i].id = newUpdate[i].dt
         }
 
-
-       
-        console.log('Your next days', state.nextDaysWeather)
-
     },
 
     // When all API call repsonses are fully loaded, commit the mutation of the state "loaded"
@@ -215,22 +93,10 @@ const mutations = {
                 element.cityName !== state.cityInfos.cityName
             )
             state.cityInfos.favoriteCity = newUpdate
-                    console.log('youve already liked, so now dislike')    
+                
         }
-
-    
-
-        console.log(state.favoriteCitiesList)
     }
 
 }
 
-export default {
-    state,
-    getters,
-    actions,
-    mutations
-}
-
-
-
+export default mutations

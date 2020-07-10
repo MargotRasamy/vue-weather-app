@@ -4,12 +4,20 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 Vue.use(Vuex)
 
-// Import our modules
-import weather from './modules/weather'
+import state from './modules/state'
+import getters from './modules/getters'
+import actions from './modules/actions'
+import mutations from './modules/mutations'
+
 
 // Create the store
 export default new Vuex.Store({
     modules : {
-        weather
+        weather : {
+            state,
+            getters,
+            actions,
+            mutations
+        }
     }
 });

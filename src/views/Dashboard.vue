@@ -2,50 +2,41 @@
   <div class="dashboard">
     <!-- 1st column datas -->
     <div class="dashboard-primary dashboard-container-grid">
-      <div class="dashboard-data">
 
+      <div class="dashboard-data">
         <CurrentWeather/>
-        
-      </div>
-      <div class="dashboard-data">
-
-        <NextDaysPreview/>
-      </div>
-      <div class="dashboard-data">
-
-        <TemperatureGraph />
-        
       </div>
       
-    
+      <div class="dashboard-data">
+        <NextDaysPreview/>
+      </div>
+
+      <div class="dashboard-data">
+        <TemperatureGraph />   
+      </div>
+      
     </div>
     
 
     <!-- 2nd column datas -->
     <div class="dashboard-secondary dashboard-container-grid">
-      <div class="dashboard-data">
-        
-        <Humidity/>
 
+      <div class="dashboard-data">
+        <Humidity/>
       </div>
 
        <div class="dashboard-data">
-        <Wind/>
-        
+        <Wind/> 
       </div>
       
       <div class="dashboard-data">
         <Pressure/>
-        
       </div>
       
       <div class="dashboard-data">
-  
-           
         <Sun/>
-        
-        
       </div>
+
     </div>
   
   </div>
@@ -59,7 +50,6 @@ import Humidity from '../components/dashboard-components/Humidity.vue'
 import Wind from '../components/dashboard-components/Wind.vue'
 import Pressure from '../components/dashboard-components/Pressure.vue'
 import Sun from '../components/dashboard-components/Sun.vue'
-
 
 export default {
   name: 'Dashboard',
@@ -164,10 +154,7 @@ export default {
         @include medium {
           font-size: 28px;
         }
-      }
-     
-  
-      
+      } 
     }
 
   // Yellow box
@@ -180,7 +167,6 @@ export default {
 
     //All boxes of 2nd columns datas
     & > * > :only-child {
-
       & img {
         height: 45px;
         

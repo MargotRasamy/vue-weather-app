@@ -17,8 +17,6 @@
           </span>
     </div>
     
-
-
   </div>
 </template>
 
@@ -40,6 +38,7 @@ export default {
     ])
   },
   methods : {
+    // Method to get the current date
     rangeDate(day) {
       var rangeDate = moment().add(day, 'days').format('DD/MM/YYYY')
       return rangeDate
