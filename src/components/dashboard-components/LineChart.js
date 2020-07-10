@@ -17,9 +17,9 @@ export default {
                   },
                   // les pas
                   ticks: {
-                      beginAtZero: false,
+                      beginAtZero: true,
                       max: 40,
-                      min: 10,
+                      min: 0,
                       stepSize: 1
                   }
               }],
