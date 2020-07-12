@@ -4,7 +4,8 @@ const getters = {
     todaysWeatherInfos : (state) => {return state.todaysWeather},
     nextDaysWeatherInfos : (state) => {return state.nextDaysWeather},
     loadingAPI : (state) => {return state.loading},
-    favoriteCitiesList : (state) => {return state.favoriteCitiesList}
+    favoriteCitiesList : (state) => {return state.favoriteCitiesList},
+    language : (state) => {return state.lang}
 }
 
 export default getters

@@ -4,13 +4,13 @@
         <span></span>
         <ul class="nav">
             <li   class="nav-item">
-            <router-link ref="navLink1" :class="[!currentRoute.includes('nextdays') && !currentRoute.includes('favorites') ? 'nav-active' : '' ]" class="nav-link" to="/">Météo du jour</router-link>   
+            <router-link ref="navLink1" :class="[!currentRoute.includes('nextdays') && !currentRoute.includes('favorites') ? 'nav-active' : '' ]" class="nav-link" to="/">{{ $t('nav.currentWeather') }}</router-link>   
             </li>
             <li  class="nav-item">
-            <router-link ref="navLink2" :class="[currentRoute.includes('nextdays') ? 'nav-active' : '' ]" class="nav-link" to="/nextdays">Les prochains jours</router-link>
+            <router-link ref="navLink2" :class="[currentRoute.includes('nextdays') ? 'nav-active' : '' ]" class="nav-link" to="/nextdays">{{ $t('nav.nextDaysInfos') }}</router-link>
             </li>
             <li  class="nav-item">
-            <router-link ref="navLink3" :class="[currentRoute.includes('favorites') ? 'nav-active' : '' ]" class="nav-link" to="/favorites">Mes villes favorites</router-link>
+            <router-link ref="navLink3" :class="[currentRoute.includes('favorites') ? 'nav-active' : '' ]" class="nav-link" to="/favorites">{{ $t('nav.favorites') }}</router-link>
             </li>
         </ul>
      </nav>   

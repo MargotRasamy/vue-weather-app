@@ -1,6 +1,6 @@
 <template>
   <div >
-    <h2 v-if="favoriteCitiesList.length === 0">Pas encore de villes en favoris pour le moment.</h2>
+    <h2 v-if="favoriteCitiesList.length === 0">{{ $t('favoriteCities.noCities') }}</h2>
     <span class="favorites" >
       <div class="favorites-container" v-for="favoritedCity in favoriteCitiesList" v-bind:key="favoritedCity.cityName">
           <FavoriteCity 

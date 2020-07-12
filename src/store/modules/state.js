@@ -7,11 +7,8 @@ const state = {
         countryCode : "",
         favoriteCity : false
     },
-    
     // Favorites
-    favoriteCitiesList : [
-
-    ],
+    favoriteCitiesList : [],
     // Current weather
     todaysWeather : {
         date : "",
@@ -31,7 +28,8 @@ const state = {
     ],
     // API call responses fully loaded
     // If loading = true, do not render the components yet
-    loading : true
+    loading : true,
+    lang : "fr"
 }
 
 export default state

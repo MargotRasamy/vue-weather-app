@@ -95,6 +95,11 @@ const mutations = {
             state.cityInfos.favoriteCity = newUpdate
                 
         }
+    },
+
+    // Updating app language
+    updateLanguage : (state, newUpdate) => {
+        state.lang = newUpdate
     }
 
 }

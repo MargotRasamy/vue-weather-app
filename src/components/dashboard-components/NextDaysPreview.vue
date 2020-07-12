@@ -1,13 +1,13 @@
 <template>
   <div class="next-days-preview" >
     <span>
-      <p class="data-title">Météo des prochaines heures</p>
+      <p class="data-title">{{ $t('nextDaysPreview.nextDaysPreviewTag')}}</p>
       <router-link class="button button--purple" to="/nextdays">
-        Voir plus
+        {{ $t('nextDaysPreview.seeMore')}}
       </router-link>
     </span>
 
-    <h2 v-if="!nextDaysWeatherInfos[0].temperature">Chargement...</h2>
+    <h2 v-if="!nextDaysWeatherInfos[0].temperature">{{ $t('loading')}}</h2>
 
     <span class="next-preview" v-if="nextDaysWeatherInfos[0].temperature">
       <div class="container" v-for="i in 4" v-bind:key="i">

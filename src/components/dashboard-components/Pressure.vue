@@ -1,7 +1,7 @@
 <template>
   <div class="pressure">
 
-    <p class="data-title">Pression atmosphérique</p>
+    <p class="data-title">{{ $t('pressure')}}</p>
     <div class="data-container">
       <p class="data-numbers">{{ todaysWeatherInfos.pressure }} hPa</p>
       <img src="../../assets/weather-icons/tide.svg"/>

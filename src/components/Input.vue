@@ -1,6 +1,6 @@
 <template>
    <form class="input">
-                <input v-model="queryCity"  type="text" id="search-input" placeholder="Rechercher votre ville (exemple: Hong Kong...)"/>
+                <input v-model="queryCity"  type="text" id="search-input" :placeholder=" $t('input') "/>
                 <button v-on:click.prevent="submit" alt="submit"/>
     </form>
   

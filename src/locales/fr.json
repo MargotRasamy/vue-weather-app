@@ -21,6 +21,30 @@
         "sunrise" : "Lever du soleil",
         "sunset" : "Coucher du soleil"
     },
-    "temperatureGraph" : "Courbe de températures des 5 prochains jours",
-    "wind" : "Vent"
+    "temperatureGraph" : {
+        "graphTag" : "Courbe de températures des 5 prochains jours",
+        "labels" : [
+            "Température réelle"
+        ]
+    },
+    "wind" : "Vent",
+    "loading" : "Chargement...",
+    "welcome" : {
+        "title" : "Bienvenue sur Meteor Garden !",
+        "caption" : "Pour voir la météo d'aujourd'hui et des prochains jours, recherchez votre ville ci-dessus."
+    },
+    "nextDays" : {
+        "dayTags": [
+            "Aujourd'hui",
+            "Demain",
+            "Après-demain",
+            "Le",
+            "Le",
+            "Le"
+        ],
+        "title" : "La météo des prochains jours à"
+    },
+    "favoriteCities" : {
+        "noCities" : "Pas encore de villes en favoris pour le moment."
+    }
 }

@@ -1,11 +1,11 @@
 <template>
   <div class="sun">
-     <p class="data-title">Lever et coucher du soleil</p>
+     <p class="data-title">{{ $t('sun.sunTag')}}</p>
       <div class="data-sun-container">
         <div class="data-sun">
             <img src="../../assets/weather-icons/sunrise-1.svg"/>
             <span>
-            <p>Lever du soleil</p>
+            <p>{{ $t('sun.sunrise')}}</p>
             <p class="data-hours">{{ todaysWeatherInfos.sunrise }}</p>
             </span>
         </div>
@@ -13,7 +13,7 @@
         <div class="data-sun">
             <img src="../../assets/weather-icons/sunset-1.svg"/>
             <span>
-            <p>Coucher du soleil</p>
+            <p>{{ $t('sun.sunset')}}</p>
             <p class="data-hours">{{ todaysWeatherInfos.sunset }}</p>
             </span>
         </div>
@@ -37,9 +37,7 @@ export default {
 </script>
 
 <style scoped lang="scss"> 
-  .sun {
-  
-  }
+
     .sun > .data-sun-container {
 
       margin: auto;

@@ -21,6 +21,30 @@
         "sunrise" : "Sunrise hour",
         "sunset" : "Sunset hour"
     },
-    "temperatureGraph" : "Temperature graph of the 5 next days",
-    "wind" : "Wind"
+    "temperatureGraph" : {
+        "graphTag" : "Temperature graph of the 5 next days",
+        "labels" : [
+            "Real temperature"
+        ]
+    },
+    "wind" : "Wind",
+    "loading" : "Loading...",
+    "welcome" : {
+        "title" : "Welcome to Meteor Garden !",
+        "caption" : "To see today and the upcoming days'weather, search for your city."
+    },
+    "nextDays" : {
+        "dayTags": [
+            "Today",
+            "Tomorrow",
+            "The day after tomorrow",
+            "On",
+            "On",
+            "On"
+        ],
+        "title" : "The weather of the upcoming days in"
+    },
+    "favoriteCities" : {
+        "noCities" : "No favorite cities yet."
+    }
 }

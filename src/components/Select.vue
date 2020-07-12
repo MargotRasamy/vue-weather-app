@@ -1,29 +1,40 @@
 <template>
   <div class="select">
     
-    <select v-on:change="onChange($event)" v-model="selectedLang">
+    <select v-on:change="onChange($event)" v-model="$i18n.locale">
         <option value="fr" selected>Français</option>
         <option value="en" >English</option>
     </select>
+
     
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
 export default {
   name: 'Select',
-  data() {
-    return {
-      selectedLang : "fr"
-    }
+  computed : {
+    ...mapGetters([
+        'language',
+        'allCityInfos'
+    ])
   },
   methods : {
+    ...mapActions([
+        'changeLanguage',
+        'fetchCurrentWeather',
+        'fetchNextDaysWeather'
+    ]),
     onChange(event) {
-      console.log(event.target.value)
+      this.changeLanguage(event.target.value)
+      this.fetchCurrentWeather(this.allCityInfos.cityName)
+        this.fetchNextDaysWeather(this.allCityInfos.cityName)
     }
   }
 }
 </script>
+
 
 <style scoped lang="scss">
 .select{

@@ -1,6 +1,6 @@
 <template>
   <div class="temperature-graph">
-    <p class="data-title">Courbe de températures des prochaines heures</p>
+    <p class="data-title">{{ $t('temperatureGraph.graphTag') }}</p>
 
     <span class="chart-container">
       <line-chart class="chart" :chart-data="generateData"></line-chart>
@@ -38,7 +38,7 @@ export default {
       labels: hoursDatas,
       datasets: [
           {
-          label: "Température réelle",
+          label: this.$t(`temperatureGraph.labels[0]`),
           borderColor: "#f39e00",
           pointBackgroundColor: "#f39e00",
           pointBorderColor: "#f39e00",

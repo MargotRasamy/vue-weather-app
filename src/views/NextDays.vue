@@ -1,10 +1,10 @@
 <template>
   <div class="nextdays">
-    <H2 v-if="allCityInfos.cityName">La météo des prochains jours à {{ allCityInfos.cityName }}</H2>
-    <H3 v-if="!allCityInfos.cityName">Chargement...</H3>
+    <H2 v-if="allCityInfos.cityName">{{ $t('nextDays.title') }} {{ allCityInfos.cityName }}</H2>
+    <H3 v-if="!allCityInfos.cityName">{{ $t('loading') }}</H3>
 
     <div class="range-weather" v-for="i in 5" :key="i">
-      <H3 class="day-weather">{{rangeDate(i -1)}}</H3>
+      <H3 class="day-weather">{{ $t('nextDays.dayTags[' + (i - 1) + ']') }} {{rangeDate(i -1)}}</H3>
           <span class="meteo-container" v-if="allCityInfos.cityName">
             <div class="infos-container" v-for="nextDay in forecastDayRange(i -1)" v-bind:key="nextDay.id" >
                 <NextDaysInfos

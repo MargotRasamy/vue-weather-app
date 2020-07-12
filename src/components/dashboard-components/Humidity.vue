@@ -1,7 +1,7 @@
 <template>
   <div class="humidity">
     
-    <p class="data-title">Humidité</p>
+    <p class="data-title">{{ $t('humidity')}}</p>
     <div class="data-container">
       <p class="data-numbers">{{ todaysWeatherInfos.humidity }} %</p>
       <img src="../../assets/weather-icons/humidity.svg"/>

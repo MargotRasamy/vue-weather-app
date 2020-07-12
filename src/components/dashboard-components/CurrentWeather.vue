@@ -1,16 +1,16 @@
 <template>
   <div class="current-weather">
-    <p class="data-title">Situation actuelle</p>
+    <p class="data-title">{{ $t('currentWeather.currentWeatherTag')}}</p>
 
-    <h2 v-if="!allCityInfos.cityName">Chargement...</h2>
+    <h2 v-if="!allCityInfos.cityName">{{ $t('loading')}}</h2>
     <div class="current-weather--details" v-if="allCityInfos.cityName">
       <span class="temperature-details">
           <i class="weather-icons wi" :class="weatherIcons(todaysWeatherInfos.iconId)"></i>
           <div class="temperature-text">
             <p>{{ todaysWeatherInfos.temperature }}°</p>
             <p>{{ todaysWeatherInfos.weatherCaption }}</p>
-            <p>Température max : {{ todaysWeatherInfos.temperatureMax }}°</p>
-            <p>Température min : {{ todaysWeatherInfos.temperatureMin }}°</p>
+            <p>{{ $t('currentWeather.temperatureMax')}} : {{ todaysWeatherInfos.temperatureMax }}°</p>
+            <p>{{ $t('currentWeather.temperatureMin')}} : {{ todaysWeatherInfos.temperatureMin }}°</p>
     
           </div>
       </span>

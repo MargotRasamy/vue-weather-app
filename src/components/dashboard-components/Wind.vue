@@ -1,7 +1,7 @@
 <template>
   <div class="wind">
  
-    <p class="data-title">Vent</p> 
+    <p class="data-title">{{ $t('wind') }}</p> 
     <div class="data-container">
       <p class="data-numbers">{{ todaysWeatherInfos.wind }} m/s</p>
       <img src="../../assets/weather-icons/windy.svg"/>
