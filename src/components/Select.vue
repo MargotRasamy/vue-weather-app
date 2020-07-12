@@ -1,9 +1,9 @@
 <template>
   <div class="select">
     
-    <select>
-        <option selected>Français</option>
-        <option >English</option>
+    <select v-on:change="onChange($event)" v-model="selectedLang">
+        <option value="fr" selected>Français</option>
+        <option value="en" >English</option>
     </select>
     
   </div>
@@ -11,7 +11,17 @@
 
 <script>
 export default {
-  name: 'Select'
+  name: 'Select',
+  data() {
+    return {
+      selectedLang : "fr"
+    }
+  },
+  methods : {
+    onChange(event) {
+      console.log(event.target.value)
+    }
+  }
 }
 </script>
 

@@ -1,5 +1,5 @@
 {   
-    "input" : "Search...",
+    "input" : "Find your favorite city (example: Hong Kong...)",
     "nav" : {
         "currentWeather":"Weather of the day",
         "nextDaysInfos": "Next days weather",
@@ -11,12 +11,11 @@
         "temperatureMin" : "Min temperature"
     },
     "humidity" : "Humidity",
-    "nextDaysInfos" : "",
     "nextDaysPreview" : {
         "nextDaysPreviewTag" :"Weather of the upcoming days",
         "seeMore" : "See more"
     },
-    "pressure" : "Pressure",
+    "pressure" : "Atmospheric pressure",
     "sun" : {
         "sunTag" : "Sunrise and sunset",
         "sunrise" : "Sunrise hour",

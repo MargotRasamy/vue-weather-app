@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import weatherIcons from '../../staticContent/weatherIcons.js'
+import weatherIcons from '../../static/weatherIcons.js'
 export default {
   name: 'NextDaysInfos',
   data: () => ({

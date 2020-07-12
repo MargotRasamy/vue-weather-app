@@ -1,5 +1,5 @@
 {   
-    "input" : "Rechercher...",
+    "input" : "Rechercher votre ville (exemple: Hong Kong...)",
     "nav" : {
         "currentWeather":"Météo du jour",
         "nextDaysInfos": "Les prochains jours",
@@ -11,7 +11,6 @@
         "temperatureMin" : "Température min"
     },
     "humidity" : "Humidité",
-    "nextDaysInfos" : "",
     "nextDaysPreview" : {
         "nextDaysPreviewTag" :"Météo des prochains jours",
         "seeMore" : "Voir plus"

@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import weatherIcons from '../../staticContent/weatherIcons.js'
+import weatherIcons from '../../static/weatherIcons.js'
 import Star from '../Star.vue';
 import { mapGetters, mapActions } from 'vuex';
 
