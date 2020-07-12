@@ -1,10 +1,10 @@
 <template>
-  <div class="logo">
+  <router-link to="/" class="logo">
     
     <img alt="logo" src="../assets/logo.svg"/>
     <h3>Meteor <span>Garden</span></h3>
     
-  </div>
+  </router-link>
 </template>
 
 <script>
@@ -18,6 +18,10 @@ export default {
   display: flex;
   align-items: center;
   text-align: left;
+}
+h3 {
+  font-weight: bold;
+  color: var(--colorMainBlack);
 }
 
 h3 span{

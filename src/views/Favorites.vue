@@ -1,9 +1,9 @@
 <template>
-  <div >
-    <h2 v-if="favoriteCitiesList.length === 0">{{ $t('favoriteCities.noCities') }}</h2>
-    <span class="favorites" >
+  <div class="favorites-component">
+    <p v-if="favoriteCitiesList.length === 0">{{ $t('favoriteCities.noCities') }}</p>
+    <span class="favorites">
       <div class="favorites-container" v-for="favoritedCity in favoriteCitiesList" v-bind:key="favoritedCity.cityName">
-          <FavoriteCity 
+          <FavoriteCity class="cityFav"
           v-on:click.native="fetchCity(favoritedCity.cityName)"
           :isFavorited="true"
           :favCityName="favoritedCity.cityName"
@@ -43,6 +43,10 @@ export default {
 <style scoped lang="scss">
   @import "./../assets/scss-variables/medias.scss";
 
+
+.favorites-component p {
+  font-size: 24px;
+}
 .favorites{
   display: grid;
   grid-template-columns: repeat(4,1fr);
@@ -51,6 +55,12 @@ export default {
   @include small{
     grid-template-columns: repeat(2,1fr);
   }
+}
+.cityFav {
+  color: var(--colorMainBlack);
+}
+.cityFav:hover {
+  color: var(--colorYellow);
 }
 
 

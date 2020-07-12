@@ -84,8 +84,13 @@ html::-webkit-scrollbar {
 html::-webkit-scrollbar-thumb {
     background: #706bff; 
 }
+
+@font-face {
+  font-family: 'Nunito' ;
+  src: url("../src/assets/fonts/Nunito/Nunito-Regular.ttf");
+}
 #app {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Nunito';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

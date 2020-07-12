@@ -99,6 +99,7 @@ export default {
     text-align: left;
     align-self: flex-start;
     padding-bottom: var(--spaceS);
+    font-weight: bold;
   }
   
   .data-hours{

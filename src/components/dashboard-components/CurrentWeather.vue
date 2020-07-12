@@ -9,8 +9,8 @@
           <div class="temperature-text">
             <p>{{ todaysWeatherInfos.temperature }}°</p>
             <p>{{ todaysWeatherInfos.weatherCaption }}</p>
-            <p>{{ $t('currentWeather.temperatureMax')}} : {{ todaysWeatherInfos.temperatureMax }}°</p>
-            <p>{{ $t('currentWeather.temperatureMin')}} : {{ todaysWeatherInfos.temperatureMin }}°</p>
+            <p>{{ $t('currentWeather.temperatureMax')}} : <strong>{{ todaysWeatherInfos.temperatureMax }}°</strong></p>
+            <p>{{ $t('currentWeather.temperatureMin')}} : <strong>{{ todaysWeatherInfos.temperatureMin }}°</strong></p>
     
           </div>
       </span>

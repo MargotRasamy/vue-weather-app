@@ -1,7 +1,7 @@
 <template>
   <div class="welcome">
     <h1>{{ $t('welcome.title') }}</h1>
-    <h2>{{ $t('welcome.caption') }}</h2>
+    <p>{{ $t('welcome.caption') }}</p>
   </div>
 </template>
 
@@ -17,5 +17,8 @@ export default {
     }
     h1{
         color: var(--colorPurple);
+    }
+    p {
+      font-size: 24px;
     }
 </style>
