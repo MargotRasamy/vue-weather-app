@@ -108,6 +108,7 @@ export default {
 
   // 1st columns
   & .dashboard-primary{
+    
     grid-template-rows: auto;
     grid-column: 1 / 8;
     &> *{
@@ -124,6 +125,7 @@ export default {
 
   // 2nd columns datas
   & .dashboard-secondary{
+    
     grid-template-rows: auto;
     grid-column: 8 / 11;
     @include small {
@@ -166,7 +168,15 @@ export default {
     
 
     //All boxes of 2nd columns datas
+    & > * {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+    }
     & > * > :only-child {
+      width: 100%;
+      box-sizing: content-box;
       & img {
         height: 45px;
         

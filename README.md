@@ -1,6 +1,11 @@
-# vue-weather-app
+# Meteor Garden
+An weather app made in VueJS by **Margot Rasamy** ❤️
+The app uses many dependencies and plugins such as :
+**Axios, Vue-router, Vuex, Chart-js, Vue-chartjs, Moment.js and Vue-i18n**
 
 ## Project setup
+* To setup the project, install the dependencies
+
 ```
 npm install
 ```
@@ -20,5 +25,4 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+© Margot RASAMY - 2020
