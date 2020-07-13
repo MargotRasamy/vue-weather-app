@@ -70,14 +70,14 @@ span {
     color: var(--colorWhite);
 }
 
-.nav-link:hover {
-    color: var(--colorPurple);
-    background-color: var(--colorPurpleVeryLight);
-    border-radius: var(--borderRadiusLarge) 0 0 var(--borderRadiusLarge) ;
-    @include small {
-        border-radius: 0 ;
-    }
-}
+// .nav-link:hover {
+//     color: var(--colorPurple);
+//     background-color: var(--colorPurpleVeryLight);
+//     border-radius: var(--borderRadiusLarge) 0 0 var(--borderRadiusLarge) ;
+//     @include small {
+//         border-radius: 0 ;
+//     }
+// }
 
 .nav-active{
     background-color: var(--colorPurpleVeryLight);

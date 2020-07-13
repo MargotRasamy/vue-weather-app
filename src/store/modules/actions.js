@@ -7,7 +7,7 @@ const actions = {
     fetchCurrentWeather({commit, state}, payload) {
         this.state.loaded = true
         
-            axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${payload}&units=metric&appid=${state.apiKey}&lang=${state.lang}`)
+            axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${payload}&units=metric&appid=${state.apiKey}&lang=${state.lang}`)
            .then(response => {
                 if (response.status === 200){
                    commit('updateTodaysWeather', response.data)
@@ -22,7 +22,7 @@ const actions = {
     // Actions for the next days weather fetching via API
     fetchNextDaysWeather({commit, state}, payload) {
       
-           axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${payload}&units=metric&appid=${state.apiKey}&lang=${state.lang}`)
+           axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${payload}&units=metric&appid=${state.apiKey}&lang=${state.lang}`)
            .then(response => {
                 if (response.status === 200){
                     commit('updateNextDaysWeather', response.data.list)
