@@ -69,6 +69,16 @@ span {
     min-height:40px;
     color: var(--colorWhite);
 }
+
+.nav-link:hover {
+    color: var(--colorPurple);
+    background-color: var(--colorPurpleVeryLight);
+    border-radius: var(--borderRadiusLarge) 0 0 var(--borderRadiusLarge) ;
+    @include small {
+        border-radius: 0 ;
+    }
+}
+
 .nav-active{
     background-color: var(--colorPurpleVeryLight);
     border-radius: var(--borderRadiusLarge) 0 0 var(--borderRadiusLarge) ;

@@ -139,9 +139,11 @@ html::-webkit-scrollbar-thumb {
     }
     .burger-menu{
       display: none;
+      font-size: 24px;
       width:fit-content;
       height:fit-content;
       text-decoration: none;
+      color: var(--colorPurple);
       @include small{
         display: block;
         grid-column: 3 / 5;
