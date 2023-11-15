@@ -1,7 +1,7 @@
 <template>
     <router-link to="/" class="favorite-city"  >
             <Star class="favorite" :colorChange="isFavorited" />
-            <img class="flag" v-bind:src="'https://www.countryflags.io/' + favCountryCode + '/shiny/64.png'"/>
+            <img class="flag" v-bind:src="'https://www.flagsapi.com/' + favCountryCode + '/shiny/64.png'"/>
              <p class="favorite-city--name">{{ favCityName }}</p>
         
     </router-link>

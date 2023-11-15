@@ -23,7 +23,7 @@
             </span>
             <p>{{ todaysWeatherInfos.date }}</p>
           </div>
-          <img class="flag" v-bind:src="'https://www.countryflags.io/' + allCityInfos.countryCode + '/shiny/64.png'"/>
+          <img class="flag" v-bind:src="'https://flagsapi.com/' + allCityInfos.countryCode + '/shiny/64.png'"/>
       </span>
     </div>
   </div>
